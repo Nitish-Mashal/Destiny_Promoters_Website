@@ -1,0 +1,7 @@
+@import './assets/Inter/inter.css';
+@import 'frappe-ui/src/style.css';
+
+
+.font {
+    color: #1a1a1a;
+}

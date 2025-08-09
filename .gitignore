@@ -1,0 +1,15 @@
+*.pyc
+_pycache_/
+*.swp
+*.log
+node_modules/
+env/
+*.db
+*.sqlite
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+*.bak
+*.tar.gz
+*.zip
+*.egg-info/

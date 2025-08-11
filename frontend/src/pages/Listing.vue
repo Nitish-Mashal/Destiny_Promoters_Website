@@ -13,8 +13,8 @@
         <!-- Search Input -->
         <div class="flex justify-center pb-4">
             <div class="relative w-[90%] max-w-3xl">
-                <input type="text" placeholder="Search For A Property"
-                    class="w-full px-4 py-3 pr-40 rounded-xl bg-gray-100 text-sm border-0 outline-none focus:ring-0 focus:outline-none" />
+                <input type="text" placeholder="Search For A Property" v-model="searchQuery"
+                    class="w-full px-4 py-3 pr-40 rounded-xl bg-gray-100 text-sm border-0 outline-none focus:ring-0" />
 
                 <button
                     class="hidden md:flex absolute top-1/2 right-2 transform -translate-y-1/2 bg-black text-white px-5 py-2 rounded-lg text-sm items-center gap-2 hover:bg-gray-800">
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <!-- Filters Section -->
+        <!-- Filters -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
             <div v-for="(filter, index) in filters" :key="index" class="relative">
                 <div @click="toggleDropdown(index)"
@@ -52,44 +52,55 @@
             </div>
         </div>
 
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <div v-for="(property, index) in properties" :key="index"
-                class="relative rounded-xl overflow-hidden shadow-md border bg-white">
-                <img :src="property.image" alt="Property Image" class="w-full h-48 p-2 rounded" />
+        <!-- Property Cards -->
+        <div class="font grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <router-link v-for="property in filteredProperties" :key="property.id"
+                :to="{ name: 'ListingDetails', params: { id: property.id } }"
+                class="relative rounded-xl overflow-hidden shadow-md border bg-white no-underline text-black hover:no-underline">
+                <img :src="property.thumbnail" alt="Property Image" class="w-full h-52 p-2 rounded-4" />
 
-                <!-- SOLD OUT badge -->
-                <div class="">
-                    <div v-if="property.soldOut"
-                        class="absolute top-2 left-2 bg-black text-white text-[10px] px-2 py-1 rounded">
-                        SOLD OUT
-                    </div>
+                <div v-if="property.soldOut"
+                    class="absolute top-4 left-4 bg-black text-white text-[10px] px-2 py-1 rounded-3xl">
+                    SOLD OUT
                 </div>
 
                 <div class="px-3">
-                    <div class="text-[13px] font-semibold">{{ property.title }}</div>
+                    <div class="text-[13px] font-semibold no-underline">
+                        {{ property.name }}
+                    </div>
+
                     <div class="flex items-center justify-between gap-2 pb-2">
-                        <div class="text-xs text-gray-800 truncate max-w-[60%]">
+                        <div class="text-xs text-gray-800 truncate max-w-[60%] no-underline">
                             {{ property.description }}
                         </div>
                         <button
-                            class="bg-black text-white px-2 py-1 rounded-lg hover:bg-gray-800 text-sm whitespace-nowrap">
+                            class="bg-black text-white px-2 py-1 rounded-lg hover:bg-gray-800 text-sm whitespace-nowrap no-underline">
                             Know More
                         </button>
                     </div>
                 </div>
-            </div>
+            </router-link>
         </div>
+
+        <!-- Animities Section -->
         <BuildingAmenities />
+
     </div>
 </template>
 
 <script setup>
 import BuildingAmenities from './BuildingAmenities.vue'
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import propertiesData from '../data/properties.json'
 
+const properties = ref([])
+const searchQuery = ref('')
 const activeDropdown = ref(null)
 const selectedOptions = ref(Array(5).fill(null))
+
+onMounted(() => {
+    properties.value = propertiesData
+})
 
 const toggleDropdown = (index) => {
     activeDropdown.value = activeDropdown.value === index ? null : index
@@ -108,30 +119,9 @@ const filters = [
     { label: 'Build Year', icon: 'bi bi-calendar-event', options: ['2025', '2024', '2020-2023', 'Before 2020'] },
 ]
 
-// JSON with "soldOut"
-const properties = ref([
-    { title: "Avani Hills", description: "Your Dream will not...", image: new URL("../assets/images/Listing/Avani_Hills.png", import.meta.url).href, soldOut: true },
-    { title: "Avani Gardens", description: "Your Dream, our passion...", image: new URL("../assets/images/Listing/Avani_Gardens.png", import.meta.url).href, soldOut: true },
-    { title: "Avani Residency", description: "Stop Dreaming, Start Living...", image: new URL("../assets/images/Listing/Avani_Residency.png", import.meta.url).href, soldOut: true },
-    { title: "SSB Royale", description: "Luxury you deserve...", image: new URL("../assets/images/Listing/SSB_Royale.png", import.meta.url).href, soldOut: true },
-    { title: "Panchmukhi Paradise", description: "Where Diversity and...", image: new URL("../assets/images/Listing/Panchmuki.png", import.meta.url).href, soldOut: true },
-    { title: "Birla Apple Spire", description: "Live Healthy, Live Well...", image: new URL("../assets/images/Listing/Birla_Apple.png", import.meta.url).href, soldOut: true },
-    { title: "Reliance Trends", description: "A Commercial Project...", image: new URL("../assets/images/Listing/Reliancetrends.png", import.meta.url).href, soldOut: true },
-    { title: "Suvedha Elegant", description: "An Irresistible Living...", image: new URL("../assets/images/Listing/SuvedhaElegant.png", import.meta.url).href, soldOut: true },
-    { title: "Suvedha Paradise", description: "Higher Quality Of Living...", image: new URL("../assets/images/Listing/SuvedhaParadise.png", import.meta.url).href, soldOut: true },
-    { title: "Suvedha Elite", description: "Quality Construction...", image: new URL("../assets/images/Listing/SuvedhaElite.png", import.meta.url).href, soldOut: true },
-    { title: "Suvedha Luxuria", description: "A Rare Blend of Luxury...", image: new URL("../assets/images/Listing/SuvedhaLuxuria.png", import.meta.url).href, soldOut: true },
-    { title: "Sri Sayuktha Enclave", description: "Redefining Luxury...", image: new URL("../assets/images/Listing/SriSayukthaEnclave.png", import.meta.url).href, soldOut: true },
-    { title: "Bhaskara Elite", description: "Living Luxury...", image: new URL("../assets/images/Listing/BhaskaraElite.png", import.meta.url).href, soldOut: true },
-    { title: "GR Galaxy", description: "A Place To Celebrate...", image: new URL("../assets/images/Listing/GRGalaxy.png", import.meta.url).href, soldOut: true },
-    { title: "Suvedha Pride", description: "Higher Quality Of Living...", image: new URL("../assets/images/Listing/SuvedhaPride.png", import.meta.url).href, soldOut: true },
-    { title: "Suvedha Sukriti", description: "Higher Quality Of Living...", image: new URL("../assets/images/Listing/SuvedhaSukriti.png", import.meta.url).href, soldOut: true },
-    { title: "Sai Krupa Forest View", description: "Premium Apartments...", image: new URL("../assets/images/Listing/SaiKrupaForestView.png", import.meta.url).href, soldOut: true },
-    { title: "Sai Krupa Elegance", description: "Peaceful Urban Life...", image: new URL("../assets/images/Listing/SaiKrupaElegance.png", import.meta.url).href, soldOut: true },
-    { title: "Maitri Thimmiah Serenity", description: "A Vision for Your Future...", image: new URL("../assets/images/Listing/MuniThimmaiahSerenity.png", import.meta.url).href, soldOut: true },
-])
+const filteredProperties = computed(() => {
+    return properties.value.filter(p =>
+        p.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+    )
+})
 </script>
-
-<style>
-@import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css";
-</style>

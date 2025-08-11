@@ -1,3 +1,30 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+### AL ###
+#Template for AL projects for Dynamics 365 Business Central
+#launch.json folder
+.vscode/
+#Cache folder
+.alcache/
+#Symbols folder
+.alpackages/
+#Snapshots folder
+.snapshots/
+#Testing Output folder
+.output/
+#Extension App-file
+*.app
+#Rapid Application Development File
+rad.json
+#Translation Base-file
+*.g.xlf
+#License-file
+*.flf
+#Test results file
+TestResults.xml
+=======
+>>>>>>> 0437968 (New Update added ListingDetails and contact us page)
 *.pyc
 _pycache_/
 *.swp
@@ -13,3 +40,7 @@ env/
 *.tar.gz
 *.zip
 *.egg-info/
+<<<<<<< HEAD
+=======
+>>>>>>> 4de3ae7 (Initial commit of the destiny_promoters_website with Home, Listing, AboutUS, Construction, and Interiors pages)
+>>>>>>> 0437968 (New Update added ListingDetails and contact us page)

@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+# Destiny_Promoters_Website
+Destiny_Promoters_Website
+=======
+>>>>>>> 0437968 (New Update added ListingDetails and contact us page)
 ### Destiny Promoters Website
 
 Building a new fresh website for destiny promoters
@@ -39,3 +46,7 @@ This app can use GitHub Actions for CI. The following workflows are configured:
 ### License
 
 mit
+<<<<<<< HEAD
+=======
+>>>>>>> 4de3ae7 (Initial commit of the destiny_promoters_website with Home, Listing, AboutUS, Construction, and Interiors pages)
+>>>>>>> 0437968 (New Update added ListingDetails and contact us page)

@@ -69,7 +69,12 @@
 
                         </li>
                         <li>
-                            <div href="#" class="text-gray-800 hover:text-[#C14899] no-underline">Contact</div>
+                            <router-link to="/ContactUS" custom v-slot="{ navigate, href }">
+                                <a :href="href" @click="navigate"
+                                    class="block py-2 text-gray-800 hover:text-[#C14899] no-underline">
+                                    Contact
+                                </a>
+                            </router-link>
                         </li>
                     </ul>
 
@@ -111,52 +116,58 @@
                         <ul v-if="isOpen" ref="mobileMenu"
                             class="absolute right-0 mt-2 bg-white w-60 shadow-lg rounded-md px-6 py-4 space-y-2 text-sm font-bold z-50">
                             <li>
-    <router-link to="/" custom v-slot="{ navigate, href }">
-        <a :href="href" @click="navigate" class="block text-gray-800 hover:text-[#C14899] no-underline">
-            Home
-        </a>
-    </router-link>
-</li>
+                                <router-link to="/" custom v-slot="{ navigate, href }">
+                                    <a :href="href" @click="navigate"
+                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        Home
+                                    </a>
+                                </router-link>
+                            </li>
 
-<li>
-    <router-link to="/Listing" custom v-slot="{ navigate, href }">
-        <a :href="href" @click="navigate" class="block text-gray-800 hover:text-[#C14899] no-underline">
-            Listings
-        </a>
-    </router-link>
-</li>
+                            <li>
+                                <router-link to="/Listing" custom v-slot="{ navigate, href }">
+                                    <a :href="href" @click="navigate"
+                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        Listings
+                                    </a>
+                                </router-link>
+                            </li>
 
-<li>
-    <router-link to="/AboutUs" custom v-slot="{ navigate, href }">
-        <a :href="href" @click="navigate" class="block text-gray-800 hover:text-[#C14899] no-underline">
-            About Us
-        </a>
-    </router-link>
-</li>
+                            <li>
+                                <router-link to="/AboutUs" custom v-slot="{ navigate, href }">
+                                    <a :href="href" @click="navigate"
+                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        About Us
+                                    </a>
+                                </router-link>
+                            </li>
 
-<li>
-    <router-link to="/construction" custom v-slot="{ navigate, href }">
-        <a :href="href" @click="navigate" class="block text-gray-800 hover:text-[#C14899] no-underline">
-            Construction
-        </a>
-    </router-link>
-</li>
+                            <li>
+                                <router-link to="/construction" custom v-slot="{ navigate, href }">
+                                    <a :href="href" @click="navigate"
+                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        Construction
+                                    </a>
+                                </router-link>
+                            </li>
 
-<li>
-    <router-link to="/Interiors" custom v-slot="{ navigate, href }">
-        <a :href="href" @click="navigate" class="block text-gray-800 hover:text-[#C14899] no-underline">
-            Interiors
-        </a>
-    </router-link>
-</li>
+                            <li>
+                                <router-link to="/Interiors" custom v-slot="{ navigate, href }">
+                                    <a :href="href" @click="navigate"
+                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        Interiors
+                                    </a>
+                                </router-link>
+                            </li>
 
-<li>
-    <router-link to="/Contact" custom v-slot="{ navigate, href }">
-        <a :href="href" @click="navigate" class="block text-gray-800 hover:text-[#C14899] no-underline">
-            Contact
-        </a>
-    </router-link>
-</li>
+                            <li>
+                                <router-link to="/Contact" custom v-slot="{ navigate, href }">
+                                    <a :href="href" @click="navigate"
+                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        Contact
+                                    </a>
+                                </router-link>
+                            </li>
 
                             <li class="flex items-center space-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

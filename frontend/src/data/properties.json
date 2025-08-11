@@ -1,0 +1,257 @@
+[
+  {
+    "id": 1,
+    "name": "Avani Hills",
+    "status": "Ready to Occupy",
+    "floors": "5 Floors",
+    "bhk": "2 & 3 BHK",
+    "fullLocation": "Rajarajeshwari Nagar, Bangalore South",
+    "description": "Avani Hills is an original and freshness, supreme quality construction and an eye for technical security project. This project is well managed with ventilate flat that allow plenty of regular sunlight and pure cool feelings. The project promise to deliver large living area that brings open royal life for comforting. The interiors of these projects are superbly designed and fixed. The services provided are of utmost quality. The ample of car parking space with small greenery park for evening walk. The structure is buildup in such way that natural sunlight is available in the apartment.",
+    "location": "R.R Nagar, Bangalore",
+    "projectArea": "1.24 Acres",
+    "builder": "Avani Builders",
+    "superBuiltUpArea": "1060 - 2205 Sqft",
+    "type": "Residential",
+    "carouselImages": [
+      "/src/assets/images/AvaniHills/img1.png",
+      "/src/assets/images/AvaniHills/img2.png",
+      "/src/assets/images/AvaniHills/img3.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/AvaniHills/project1.png",
+      "/src/assets/images/AvaniHills/project2.png",
+      "/src/assets/images/AvaniHills/project3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/Avani_Hills.png",
+    "soldOut": true
+  },
+  {
+    "id": 2,
+    "name": "Avani Gardens",
+    "status": "Ready to Occupy",
+    "floors": "5 Floors",
+    "bhk": "2 & 3 BHK",
+    "fullLocation": "Nehru Nagar, Bangalore",
+    "description": "Avani Gardens, flaunting strategic location advantages can rightfully qualify as the next generation homes. Spread out amidst greenery and structured landscape, this complex comes equipped with some of the finest amenities and facilities that one can imagine of. This architectural marvel offers spacious and plush apartments that have well appointed features that do not compromise with comfort. Away from the hustle-bustle of the city yet conveniently close to all social hot-spots, this residential township feels like a dream come true. Avani Gardens feels like a resort that is nestled in the lap of nature providing the much needed calm and tranquility that one needs after a stressed day at work..",
+    "location": "Nehru Nagar, Bangalore North",
+    "builder": "Avani Builders",
+    "type": "Residential",
+    "projectArea": "1.06 Acres",
+    "superBuiltUpArea": "1125 - 1550 Sqft",
+    "carouselImages": [
+      "/src/assets/images/AvaniGardens/AGimg1.png",
+      "/src/assets/images/AvaniGardens/AGimg2.png",
+      "/src/assets/images/AvaniGardens/AGimg3.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/AvaniGardens/ag-pj1.png",
+      "/src/assets/images/AvaniGardens/ag-pj2.png",
+      "/src/assets/images/AvaniGardens/ag-pj3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/Avani_Gardens.png",
+    "soldOut": true
+  },
+  {
+    "id": 3,
+    "name": "Avani Residency",
+    "status": "Ready to Occupy",
+    "floors": "4 Floors",
+    "bhk": "2 BHK",
+    "fullLocation": "AGS Layout, Bangalore South",
+    "description": "Avani Builders have proudly launched one of the luxurious project Avani Residency that offers 2 Bedrooms apartment and its sizes are 1100 & and 1150 Sq Ft, respectively. It is located at Srinivasa Nagar, Hosakerehalli, AGS Layout, off Uttarahalli Main Road, Bangalore South, which is touches all the prime locations of Bangalore like entertainment malls, Schools, and is well connected to all parts of Bangalore. The project is BBMP approved and contains common amenities. There are many outstanding features which drag your mind to this luxury project. Avani Residency aims to provide you a well desired life of luxury that you have dreamed of.",
+    "location": "AGS Layout, Bangalore South",
+    "builder": "Avani Builders",
+    "type": "Residential",
+    "projectArea": "1 Building - 4 Floors",
+    "superBuiltUpArea": "1100 - 1150 Sqft",
+    "carouselImages": [
+      "/src/assets/images/AvaniResidency/ARimg1.png",
+      "/src/assets/images/AvaniResidency/ARimg2.png",
+      "/src/assets/images/AvaniResidency/ARimg3.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/AvaniResidency/ar-pj1.png",
+      "/src/assets/images/AvaniResidency/ar-pj2.png",
+      "/src/assets/images/AvaniResidency/ar-pj3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/Avani_Residency.png",
+    "soldOut": true
+  },
+  {
+    "id": 4,
+    "name": "SSB Royale",
+    "status": "Ready to Occupy",
+    "floors": "5 Floors",
+    "bhk": "2 & 3 BHK",
+    "fullLocation": "Hosa Road junction, Basapura, Bangalore North",
+    "description": "Combined with quality and space, Panchmukhi Paradise by Panchmukhi Infrastructures is an ideal residential project at RR. Nagar. The project will surely take the residents to all that they have dreamed of living in their own abode. With striking infrastructure and spacious area having no common walls and 270 Degrees view area, residents can enjoy a great time staying here for long term. Proper ventilation in every room keeps the area refreshing and pleasant. Besides the tranquil ambiance, the complex bags a huge number of modern age living solutions and top class technologies which will allow you to lead a contemporary lifestyle. At Panchmukhi Paradise is designed to give you the feel of your own space. If you are looking for new home, then this is the project at RR. Nagar to go for.",
+    "location": "Basapura, Bangalore North",
+    "builder": "Sree Sai Balaji Developers",
+    "type": "Residential",
+    "projectArea": "1.00 Acres",
+    "superBuiltUpArea": "1016 - 1226 Sqft",
+    "carouselImages": [
+      "/src/assets/images/SSBRoyale/img1.png",
+      "/src/assets/images/SSBRoyale/img2.png",
+      "/src/assets/images/SSBRoyale/img3.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/SSBRoyale/imgpj2.png",
+      "/src/assets/images/SSBRoyale/imgpj1.png",
+      "/src/assets/images/SSBRoyale/imgpj3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/SSB_Royale.png",
+    "soldOut": true
+  },
+  {
+    "id": 5,
+    "name": "Panchmukhi Paradise",
+    "status": "Ready to Occupy",
+    "floors": "9 Floors",
+    "bhk": "2 & 3 BHK",
+    "fullLocation": "Rajarajeshwari Nagar, Bangalore South",
+    "description": "Combined with quality and space, Panchmukhi Paradise by Panchmukhi Infrastructures is an ideal residential project at RR. Nagar. The project will surely take the residents to all that they have dreamed of living in their own abode. With striking infrastructure and spacious area having no common walls and 270 Degrees view area, residents can enjoy a great time staying here for long term. Proper ventilation in every room keeps the area refreshing and pleasant. Besides the tranquil ambiance, the complex bags a huge number of modern age living solutions and top class technologies which will allow you to lead a contemporary lifestyle. At Panchmukhi Paradise is designed to give you the feel of your own space. If you are looking for new home, then this is the project at RR. Nagar to go for.",
+    "builder": "Panchmukhi Infrastructures",
+    "location": "R.R Nagar, Bangalore",
+    "type": "Residential",
+    "projectArea": "2.00 Acres",
+    "superBuiltUpArea": "1040 - 1535 Sqft",
+    "carouselImages": [
+      "/src/assets/images/PanchmukhiParadise/img1.png",
+      "/src/assets/images/PanchmukhiParadise/img2.png",
+      "/src/assets/images/PanchmukhiParadise/img3.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/PanchmukhiParadise/imgpj1.png",
+      "/src/assets/images/PanchmukhiParadise/imgpj2.png",
+      "/src/assets/images/PanchmukhiParadise/imgpj3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/Panchmuki.png",
+    "soldOut": true
+  },
+  {
+    "id": 6,
+    "name": "Birla Apple Spire",
+    "status": "Ready to Occupy",
+    "floors": "25 Floors",
+    "bhk": "2 & 3 BHK",
+    "fullLocation": "Nayanda Halli, Bangalore South",
+    "description": "Apple Spire is a project conceived for the next generation Bangalore. Equipped with all the contemporary lifestyle facilities for your safety + security, comfort + conveniences, leisure + entertainment and health + well being. All the units of this project are Under Construction. The project comprises of 1 towers, each of which has been carefully constructed. The project's month and year of launch is 01 December 2014 The estimated possession date of the project is 01 June 2019. The commencement certificate of this well-planned project has been granted. Birla Apple Spire has been built by reputed real estate developer Apple Spire India LLP.",
+    "builder": "Birla Apple Spire",
+    "type": "Residential",
+    "location": "Nayanda Halli, Bangalore South",
+    "projectArea": "3.00 Acres",
+    "superBuiltUpArea": "1241 - 1847 Sqft",
+    "carouselImages": [
+      "/src/assets/images/BirlaAppleSpire/img1.png",
+      "/src/assets/images/BirlaAppleSpire/img2.png",
+      "/src/assets/images/BirlaAppleSpire/img3.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/BirlaAppleSpire/imgpj1.png",
+      "/src/assets/images/BirlaAppleSpire/imgpj2.png",
+      "/src/assets/images/BirlaAppleSpire/imgpj3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/Birla_Apple.png",
+    "soldOut": true
+  },
+  {
+    "id": 7,
+    "name": "RelianceTrends",
+    "status": "Ready to Occupy",
+    "floors": "Construction and Interior done by Destiny Promoters",
+    "fullLocation": "Anekal, Bangalore",
+    "description": "Located in Anekal Bangalore, Karnataka, Reliance Trends is a Commercial project from Reliance Industries. Reliance Trends is a leading lifestyle retail chain with over 777 retail stores across India. Comprehensive store design services, Interiors make us the most sought after store design professionals offering the most exciting store designs in Bangalore and other cities, making sure that the experience for visitors walking into Reliance Trends stores is exemplary being fun, exciting yet being highly practical.",
+    "builder": "Reliance Trends",
+    "type": "Commercial",
+    "location": "Anekal, Bangalore",
+    "superBuiltUpArea": "Construction & Interior Design",
+    "carouselImages": [
+      "/src/assets/images/RelianceTrends/img1.png",
+      "/src/assets/images/RelianceTrends/img2.png",
+      "/src/assets/images/RelianceTrends/img3.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/RelianceTrends/imgpj1.png",
+      "/src/assets/images/RelianceTrends/imgpj2.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/Reliancetrends.png",
+    "soldOut": true
+  },
+  {
+    "id": 8,
+    "name": "SuvedhaElegant",
+    "status": "Ready to Occupy",
+    "floors": "4 Floors",
+    "bhk": "2 & 3 BHK",
+    "fullLocation": "Banashankari, Bangalore South",
+    "description": "Suvedha Elegant is an irresistible living option from Suvedha Builders & Developers, who owns a legacy of providing quality construction and living innovations in some of the choicest localities in Bengaluru. With over three decades and projects, Suvedha has emerged as a synonym for quality, style and transparency.",
+    "builder": "Suvedha Builders",
+    "type": "Residential",
+    "location": "Banashankari, Bangalore South",
+    "projectArea": "1 Building - 8 Units",
+    "superBuiltUpArea": "1026 - 1301 Sqft",
+    "carouselImages": [
+      "/src/assets/images/SuvedhaElegant/img1.png",
+      "/src/assets/images/BirlaAppleSpire/img2.png",
+      "/src/assets/images/BirlaAppleSpire/img3.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/SuvedhaElegant/imgpj1.png",
+      "/src/assets/images/SuvedhaElegant/imgpj2.png",
+      "/src/assets/images/SuvedhaElegant/imgpj3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/SuvedhaElegant.png",
+    "soldOut": true
+  },
+  {
+    "id": 9,
+    "name": "Suvedha Paradise",
+    "status": "Ready to Occupy",
+    "floors": "10 Floors",
+    "bhk": "2 & 3 BHK",
+    "fullLocation": "Srinivasnagar, Bangalore South",
+    "description": "Apple Spire is a project conceived for the next generation Bangalore. Equipped with all the contemporary lifestyle facilities for your safety + security, comfort + conveniences, leisure + entertainment and health + well being. All the units of this project are Under Construction. The project comprises of 1 towers, each of which has been carefully constructed. The project's month and year of launch is 01 December 2014 The estimated possession date of the project is 01 June 2019. The commencement certificate of this well-planned project has been granted. Birla Apple Spire has been built by reputed real estate developer Apple Spire India LLP.",
+    "builder": "Suvedha Builders",
+    "type": "Residential",
+    "location": "Srinivasnagar, Bangalore South",
+    "projectArea": "1 Building - 10 Units",
+    "superBuiltUpArea": "1075 - 1300 Sqft",
+    "carouselImages": [
+      "/src/assets/images/SuvedhaParadise/img1.png",
+      "/src/assets/images/SuvedhaParadise/img2.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/SuvedhaParadise/imgpj1.png",
+      "/src/assets/images/SuvedhaParadise/imgpj2.png",
+      "/src/assets/images/SuvedhaParadise/imgpj3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/SuvedhaParadise.png",
+    "soldOut": true
+  },
+  {
+    "id": 10,
+    "name": "Suvedha Elite",
+    "status": "Ready to Occupy",
+    "floors": "4 Floors",
+    "bhk": "2 & 3 BHK",
+    "fullLocation": "Uttarahalli, Bangalore South",
+    "description": "Suvedha Elite is an irresistible living option from Suvedha Builders & Developers. who owns a legacy of providinq quality construction and livinq innovations in some of the choicest localities in Bengaluru. With over three decades and more projects, Suvedha bas emerqed as a synonym for quality, style and transparency. A rare blend of luxury, necessity and class, this ls what makes every Suvedha project exceptional. The vision of Suvedha has been the same since beginning; strayinq away from convention and adding a new value and meaninq to life.",
+    "builder": "Suvedha Builders",
+    "type": "Residential",
+    "location": "Uttarahalli, Bangalore South",
+    "projectArea": "1 Building - 4 Floor",
+    "superBuiltUpArea": "1075 - 1300 Sqft",
+    "carouselImages": [
+      "/src/assets/images/SuvedhaElite/img1.png",
+      "/src/assets/images/SuvedhaElite/img2.png"
+    ],
+    "galleryImages": [
+      "/src/assets/images/SuvedhaElite/imgpj1.png",
+      "/src/assets/images/SuvedhaElite/imgpj2.png",
+      "/src/assets/images/SuvedhaElite/imgpj3.png"
+    ],
+    "thumbnail": "/src/assets/images/Listing/SuvedhaElite.png",
+    "soldOut": true
+  }
+]

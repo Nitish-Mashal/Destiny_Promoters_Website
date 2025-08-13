@@ -47,7 +47,7 @@ const routes = [
 ]
 
 let router = createRouter({
-  history: createWebHistory(''),
+  history: createWebHistory('destiny-promoters'),
   routes,
 })
 

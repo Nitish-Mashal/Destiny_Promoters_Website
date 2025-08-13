@@ -217,7 +217,7 @@
 </template>
 
 <script setup>
-import bgImage from '../assets/images/Home_Img_1.png'
+import bgImage from '/Home_Img_1.png'
 import { ref, computed } from 'vue'
 import { ElCarousel, ElCarouselItem } from 'element-plus'
 import FeaturedProperties from './FeaturedProperties.vue'
@@ -235,7 +235,7 @@ const homes = [
     baths: '2 Baths',
     area: '1241 - 1847 sqft',
     type: 'ready',
-    image: new URL('../assets/images/hfy_img_1.png', import.meta.url).href
+    image: new URL('/hfy_img_1.png', import.meta.url).href
   },
   {
     title: 'Suvedha Luxuria',

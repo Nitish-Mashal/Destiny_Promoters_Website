@@ -1,7 +1,7 @@
 <template>
     <header class="absolute top-0 left-0 w-full z-50 bg-transprent">
         <div class="max-w-7xl mx-auto">
-            <nav class="flex items-center justify-between px-[30px] sm:px-[150px] py-2 relative">
+            <nav class="flex items-center justify-between px-[30px] sm:px-[150px]  relative">
                 <!-- Logo -->
                 <div class="flex items-center space-x-2">
                     <img src="../assets/images/DP_Logo.png" alt="Logo" class="h-12" />
@@ -9,11 +9,11 @@
 
                 <!-- Desktop Navigation -->
                 <div
-                    class="hidden md:flex items-center justify-between flex-grow text-xs font-bold mt-2 ml-4 cursor-pointer">
+                    class="hidden md:flex items-center justify-between flex-grow font-regular mt-2 ml-4 cursor-pointer">
                     <!-- Left nav links -->
                     <ul class="flex items-center space-x-8">
                         <li>
-                            <router-link to="/" class="text-gray-800 hover:text-[#C14899] no-underline" custom
+                            <router-link to="/" class="text-gray-800  no-underline" custom
                                 v-slot="{ navigate, href }">
                                 <a :href="href" @click="navigate" class="no-underline text-gray-800">
                                     Home
@@ -22,7 +22,7 @@
                         </li>
 
                         <li>
-                            <router-link to="/Listing" class="text-gray-800 hover:text-[#C14899] no-underline" custom
+                            <router-link to="/Listing" class="text-gray-800  no-underline" custom
                                 v-slot="{ navigate, href }">
                                 <a :href="href" @click="navigate" class="no-underline text-gray-800">
                                     Listing
@@ -30,7 +30,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/AboutUs" class="text-gray-800 hover:text-[#C14899] no-underline" custom
+                            <router-link to="/AboutUs" class="text-gray-800  no-underline" custom
                                 v-slot="{ navigate, href }">
                                 <a :href="href" @click="navigate" class="no-underline text-gray-800">
                                     About Us
@@ -39,7 +39,7 @@
                         </li>
                         <li class="relative group">
                             <div href="#"
-                                class="text-gray-800 hover:text-[#C14899] no-underline flex items-center space-x-2">
+                                class="text-gray-800  no-underline flex items-center space-x-2">
                                 Services
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
                                     fill="currentColor">
@@ -52,7 +52,7 @@
                                 <li>
                                     <router-link to="/construction" custom v-slot="{ navigate, href }">
                                         <a :href="href" @click="navigate"
-                                            class="block py-2 text-gray-800 hover:text-[#C14899] no-underline">
+                                            class="block py-2 text-gray-800  no-underline">
                                             Construction
                                         </a>
                                     </router-link>
@@ -60,7 +60,7 @@
                                 <li>
                                     <router-link to="/Interiors" custom v-slot="{ navigate, href }">
                                         <a :href="href" @click="navigate"
-                                            class="block py-2 text-gray-800 hover:text-[#C14899] no-underline">
+                                            class="block py-2 text-gray-800  no-underline">
                                             Interiors
                                         </a>
                                     </router-link>
@@ -71,7 +71,7 @@
                         <li>
                             <router-link to="/ContactUS" custom v-slot="{ navigate, href }">
                                 <a :href="href" @click="navigate"
-                                    class="block py-2 text-gray-800 hover:text-[#C14899] no-underline">
+                                    class="block py-2 text-gray-800  no-underline">
                                     Contact
                                 </a>
                             </router-link>
@@ -114,11 +114,11 @@
                     <!-- Mobile Menu -->
                     <transition name="fade-slide">
                         <ul v-if="isOpen" ref="mobileMenu"
-                            class="absolute right-0 mt-2 bg-white w-60 shadow-lg rounded-md px-6 py-4 space-y-2 text-sm font-bold z-50">
+                            class="absolute right-0 mt-2 bg-white w-60 shadow-lg rounded-md px-6 py-4 space-y-2 font-regular z-50">
                             <li>
                                 <router-link to="/" custom v-slot="{ navigate, href }">
                                     <a :href="href" @click="navigate"
-                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        class="block text-gray-800  no-underline">
                                         Home
                                     </a>
                                 </router-link>
@@ -127,7 +127,7 @@
                             <li>
                                 <router-link to="/Listing" custom v-slot="{ navigate, href }">
                                     <a :href="href" @click="navigate"
-                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        class="block text-gray-800  no-underline">
                                         Listings
                                     </a>
                                 </router-link>
@@ -136,7 +136,7 @@
                             <li>
                                 <router-link to="/AboutUs" custom v-slot="{ navigate, href }">
                                     <a :href="href" @click="navigate"
-                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        class="block text-gray-800  no-underline">
                                         About Us
                                     </a>
                                 </router-link>
@@ -145,7 +145,7 @@
                             <li>
                                 <router-link to="/construction" custom v-slot="{ navigate, href }">
                                     <a :href="href" @click="navigate"
-                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        class="block text-gray-800  no-underline">
                                         Construction
                                     </a>
                                 </router-link>
@@ -154,16 +154,16 @@
                             <li>
                                 <router-link to="/Interiors" custom v-slot="{ navigate, href }">
                                     <a :href="href" @click="navigate"
-                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        class="block text-gray-800  no-underline">
                                         Interiors
                                     </a>
                                 </router-link>
                             </li>
 
                             <li>
-                                <router-link to="/Contact" custom v-slot="{ navigate, href }">
+                                <router-link to="/ContactUS" custom v-slot="{ navigate, href }">
                                     <a :href="href" @click="navigate"
-                                        class="block text-gray-800 hover:text-[#C14899] no-underline">
+                                        class="block py-2 text-gray-800  no-underline">
                                         Contact
                                     </a>
                                 </router-link>

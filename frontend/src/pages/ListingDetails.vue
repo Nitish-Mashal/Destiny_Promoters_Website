@@ -58,10 +58,27 @@
 
                 <!-- Left Column: Description -->
                 <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <div class="font-semibold text-7xl mb-2">Description</div>
-                    <div class="text-sm">
+                    <div class="font-semibold text-7xl mb-2">{{ property.headingFirst }}</div>
+                    <div class="text-sm mb-3">
                         {{ property.description }}
                     </div>
+
+                    <div class="font-semibold text-3xl mb-2">{{ property.headingSecond }}</div>
+                    <div class="text-sm mb-3">
+                        {{ property.descriptionSecond }}
+                    </div>
+
+                    <div class="font-semibold text-3xl mb-2">{{ property.headingThird }}</div>
+                    <div class="text-sm mb-3">
+                        {{ property.descriptionThird }}
+                    </div>
+
+                    <div class="font-semibold text-3xl mb-2">{{ property.headingFourth }}</div>
+                    <div class="text-sm mb-3">
+                        {{ property.descriptionFourth }}
+                    </div>
+
+
                 </div>
                 <div class="col-md-1"></div>
 
@@ -70,20 +87,27 @@
                     <div class="font-semibold text-7xl mb-2">Property Detail</div>
                     <div class="row text-sm">
                         <div class="col-6">
-                            <div class="mb-2">Status: <span class="font-semibold">{{ property.status }}</span></div>
-                            <div class="mb-2">Project Area: <span class="font-semibold">{{ property.projectArea
-                            }}</span></div>
-                            <div class="mb-2">Project By: <span class="font-semibold">{{ property.builder }}</span>
+                            <div class="mb-2">{{ property.headingStatus }}<span class="font-semibold">{{ property.status
+                                    }}</span></div>
+                            <div class="mb-2">{{ property.headingProjectArea }} <span class="font-semibold">{{
+                                property.projectArea
+                                    }}</span></div>
+                            <div class="mb-2">{{ property.headingProjectBy }} <span class="font-semibold">{{
+                                property.builder }}</span>
                             </div>
-                            <div class="mb-2">Super Built Up Area: <span class="font-semibold">{{
+                            <div class="mb-2">{{ property.headingSuperBuiltUpArea }} <span class="font-semibold">{{
                                 property.superBuiltUpArea }}</span></div>
                         </div>
                         <div class="col-6">
-                            <div class="mb-2">Project Type: <span class="font-semibold">{{ property.type }}</span></div>
-                            <div class="mb-2">No Of Floors: <span class="font-semibold">{{ property.floors }}</span>
+                            <div class="mb-2">{{ property.headingProjectType }} <span class="font-semibold">{{
+                                property.type }}</span></div>
+                            <div class="mb-2">{{ property.headingNoOfFloors }} <span class="font-semibold">{{
+                                property.floors }}</span>
                             </div>
-                            <div class="mb-2">Location: <span class="font-semibold">{{ property.location }}</span></div>
-                            <div class="mb-2">No Of Rooms: <span class="font-semibold">{{ property.bhk }}</span></div>
+                            <div class="mb-2">{{ property.headingLocation }} <span class="font-semibold">{{
+                                property.location }}</span></div>
+                            <div class="mb-2">{{ property.headingNoOfRooms }} <span class="font-semibold">{{
+                                property.bhk }}</span></div>
                         </div>
                     </div>
                 </div>
@@ -91,8 +115,8 @@
         </div>
 
         <!-- Fourth Section -->
-        <div class="px-[7%]">
-            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">Project Gallery</div>
+        <div class="px-[7%] mb-6">
+            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">{{ property.projectGallery }}</div>
             <div class="row font g-3">
                 <div class="col-12 col-md-6">
                     <img v-if="property.galleryImages && property.galleryImages[0]" :src="property.galleryImages[0]"
@@ -105,6 +129,14 @@
                         alt="Project Image 3" class="img-fluid w-100 rounded">
                 </div>
             </div>
+        </div>
+
+        <!-- Fifth Section -->
+        <div class="px-[7%]">
+            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">{{ property.headingProjectLocation }}
+            </div>
+            <iframe :src="property.projectLocation" class="w-full" height="450" style="border:0;" allowfullscreen=""
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <!-- Fifth Section -->

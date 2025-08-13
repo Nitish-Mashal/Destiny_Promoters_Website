@@ -8,8 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "bootstrap": "^5.3.7",
     "element-plus": "^2.10.5",
+    "emailjs-com": "^3.2.0",
     "feather-icons": "^4.28.0",
     "frappe-ui": "^0.0.105",
     "vue": "^3.2.25",

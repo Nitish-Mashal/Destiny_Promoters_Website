@@ -24,38 +24,38 @@
 
           <!-- Filter Tabs -->
           <div
-            class="flex items-center justify-center space-x-1 sm:space-x-2 bg-white text-black rounded-t-lg w-[130px] sm:w-[160px] md:w-[200px]">
+            class="flex items-center justify-center space-x-1 sm:space-x-2 bg-[#1a1a1a] text-white rounded-t-lg w-[130px] sm:w-[160px] md:w-[200px]">
             <button @click="setFilter('all')" :class="[
-              'flex-1 py-1 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm font-semibold rounded-tl-lg',
-              selectedFilter === 'all' ? 'bg-black text-white' : 'hover:bg-gray-200'
+              'flex-1 py-2 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm font-semibold rounded-tl-lg',
+              selectedFilter === 'all' ? 'bg-white font' : 'hover:bg-gray-900 '
             ]">All</button>
 
             <button @click="setFilter('sale')" :class="[
-              'flex-1 py-1 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm rounded-t-lg',
-              selectedFilter === 'sale' ? 'bg-black text-white' : 'hover:bg-gray-200'
+              'flex-1 py-2 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm rounded-t-lg',
+              selectedFilter === 'sale' ? 'bg-white font' : 'hover:bg-gray-900'
             ]">Sale</button>
 
             <button @click="setFilter('rent')" :class="[
-              'flex-1 py-1 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm rounded-t-lg',
-              selectedFilter === 'rent' ? 'bg-black text-white' : 'hover:bg-gray-200'
+              'flex-1 py-2 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm rounded-t-lg',
+              selectedFilter === 'rent' ? 'bg-white font' : 'hover:bg-gray-900'
             ]">Rent</button>
           </div>
 
           <!-- Search Bar -->
           <div
-            class="bg-white rounded-2xl sm:rounded-3xl p-1 sm:p-2 shadow-lg w-[70%] sm:w-full sm:max-w-2xl flex flex-col sm:flex-row items-stretch sm:items-center overflow-hidden">
+            class="bg-white rounded-2xl sm:rounded-xl p-3 sm:p-2 shadow-lg w-[70%] sm:w-full sm:max-w-[50%] flex flex-col sm:flex-row items-stretch sm:items-center overflow-hidden">
 
             <!-- Keyword -->
-            <div class="flex-1 border-b sm:border-b-0 sm:border-r pr-3 sm:pr-6 mb-2 sm:mb-0">
+            <div class="flex-1 border-b sm:border-b-0 sm:border-r pr-3 sm:pr-6  sm:mb-0">
               <label class="text-[10px] sm:text-xs text-gray-500 block text-left ml-2 sm:ml-3">Keyword</label>
               <input type="text" placeholder="Enter Keyword"
-                class="w-full text-[10px] sm:text-sm border-0 outline-none focus:ring-0 text-black placeholder:text-black placeholder:text-[10px] sm:placeholder:text-xs" />
+                class="w-full text-[10px] sm:text-sm border-0 outline-none py-0 focus:ring-0 text-black placeholder:text-black placeholder:text-[10px] sm:placeholder:text-xs" />
             </div>
 
             <!-- Type -->
-            <div class="flex-1 border-b sm:border-b-0 sm:border-r px-2 sm:px-3 mb-2 sm:mb-0">
+            <div class="flex-1 border-b sm:border-b-0 sm:border-r px-2 sm:px-3 sm:mb-0">
               <label class="text-[10px] sm:text-xs text-gray-500 block text-left ml-2 sm:ml-3">Type</label>
-              <select class="w-full text-[10px] sm:text-sm border-0 outline-none focus:ring-0 text-black">
+              <select class="w-full text-[10px] sm:text-sm border-0 outline-none focus:ring-0 text-black py-0">
                 <option>All Type</option>
                 <option>House</option>
                 <option>Apartment</option>
@@ -77,11 +77,12 @@
 
               <!-- Search Button -->
               <button
-                class="px-3 sm:px-4 py-1 sm:py-2 text-[10px] sm:text-sm rounded-lg bg-black text-white hover:bg-gray-800">
+                class="px-3 sm:px-4 py-2 sm:py-2 text-[10px] sm:text-sm rounded-lg bg-[#1a1a1a] text-white hover:bg-gray-800">
                 Search
               </button>
             </div>
           </div>
+
         </div>
 
       </div>
@@ -267,6 +268,7 @@ const setFilter = filter => {
     transform: translateY(50px);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;

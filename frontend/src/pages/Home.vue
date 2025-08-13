@@ -83,7 +83,28 @@
             </div>
           </div>
 
+
         </div>
+
+        <!-- Stats: Show on md and above only -->
+        <div
+          class="hidden rounded-tl-[100px] overflow-hidden md:absolute md:bottom-[-25px] right-[-1px] w-[95%] md:w-[700px] mx-auto shadow-lg">
+          <div class="grid grid-cols-1 md:grid-cols-3 bg-white p-4 custom-clip">
+            <div class="ml-20">
+              <div class="text-3xl font-bold">5+</div>
+              <div class="text-gray-900 text-sm">Completed Projects</div>
+            </div>
+            <div class="ml-20">
+              <div class="text-3xl font-bold">8+</div>
+              <div class="text-gray-900 text-sm">Upcoming Projects</div>
+            </div>
+            <div class="ml-20">
+              <div class="text-3xl font-bold">25+</div>
+              <div class="text-gray-900 text-sm">Trained Professionals</div>
+            </div>
+          </div>
+        </div>
+
 
       </div>
 
@@ -260,7 +281,7 @@ const setFilter = filter => {
 
 <style scoped>
 .custom-clip {
-  clip-path: polygon(70px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 100px);
+  clip-path: polygon(50 0, 100% 0%, 100% 100%, 0% calc(100% - 40px));
 }
 
 @keyframes slideUp {

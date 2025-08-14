@@ -47,7 +47,11 @@ const routes = [
 ]
 
 let router = createRouter({
-  history: createWebHistory('destiny-promoters'),
+  history: createWebHistory(
+    process.env.NODE_ENV === 'production'
+      ? '/destinypromoters/'
+      : '/'
+  ),
   routes,
 })
 

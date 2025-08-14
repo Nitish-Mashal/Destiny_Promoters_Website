@@ -4,7 +4,7 @@
       <!-- First Section -->
       <div class="relative max-w-[1300px] mx-auto rounded-3xl overflow-hidden">
         <!-- Background Image -->
-        <img :src="bgImage" alt="Hero Banner" class="w-full h-[300px] sm:h-auto object-cover" />
+        <img src="/Home_Img_1.png" alt="Hero Banner" class="w-full h-[300px] sm:h-auto object-cover" />
 
         <!-- Overlay Content -->
         <div
@@ -217,7 +217,7 @@
 </template>
 
 <script setup>
-import bgImage from '/Home_Img_1.png'
+// import bgImage from ''
 import { ref, computed } from 'vue'
 import { ElCarousel, ElCarouselItem } from 'element-plus'
 import FeaturedProperties from './FeaturedProperties.vue'
@@ -235,7 +235,7 @@ const homes = [
     baths: '2 Baths',
     area: '1241 - 1847 sqft',
     type: 'ready',
-    image: new URL('/hfy_img_1.png', import.meta.url).href
+    image: '/hfy_img_1.png'
   },
   {
     title: 'Suvedha Luxuria',

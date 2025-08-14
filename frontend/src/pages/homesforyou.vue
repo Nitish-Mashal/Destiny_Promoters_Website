@@ -81,7 +81,7 @@ const homes = [
         baths: '2 Baths',
         area: '1241 - 1847 sqft',
         type: 'ready',
-        image: new URL('../assets/images/hfy_img_1.png', import.meta.url).href
+        image: '/assets/images/hfy_img_1.png'
     },
     {
         title: 'Suvedha Luxuria',

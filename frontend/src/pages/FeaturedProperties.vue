@@ -71,7 +71,7 @@ const properties = [
         baths: "2",
         sizes: "1241 - 1847",
         badges: ["FOR SALE"],
-        image: '/hfy_img_1.png'
+        image: new URL('../assets/images/hfy_img_1.png', import.meta.url).href
     },
     {
         title: "A Rare Blend of Luxury, Necessity",

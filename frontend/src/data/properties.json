@@ -27,15 +27,15 @@
     "type": "Residential",
 
     "carouselImages": [
-      "/img1.png",
-      "/img2.png",
-      "/img3.png"
+      "/src/assets/images/AvaniHills/avanihills-img1.png",
+      "/src/assets/images/AvaniHills/avanihills-img2.png",
+      "/src/assets/images/AvaniHills/avanihills-img3.png"
     ],
     "projectGallery": "Project Gallery",
     "galleryImages": [
-      "/project1.png",
-      "/project2.png",
-      "/project3.png"
+      "/src/assets/images/AvaniHills/avanihills-proj1.png",
+      "/src/assets/images/AvaniHills/avanihills-proj2.png",
+      "/src/assets/images/AvaniHills/avanihills-proj3.png"
     ],
     "thumbnail": "/src/assets/images/Listing/Avani_Hills.png",
     "soldOut": true

@@ -152,7 +152,7 @@
 import BuildingAmenities from './BuildingAmenities.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import propertiesData from '../data/properties.json'
+import propertiesData from '/public/data/properties.json'
 
 const route = useRoute()
 const property = ref(null)

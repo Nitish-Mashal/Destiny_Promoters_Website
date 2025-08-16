@@ -91,7 +91,7 @@
 <script setup>
 import BuildingAmenities from './BuildingAmenities.vue'
 import { ref, computed, onMounted } from 'vue'
-import propertiesData from '../data/properties.json'
+import propertiesData from '/public/data/properties.json'
 
 const properties = ref([])
 const searchQuery = ref('')

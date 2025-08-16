@@ -4,7 +4,9 @@
             <nav class="flex items-center justify-between px-[30px] sm:px-[150px]  relative">
                 <!-- Logo -->
                 <div class="flex items-center space-x-2">
-                    <img src="../assets/images/DP_Logo.png" alt="Logo" class="h-12" />
+                    <router-link to="/">
+                        <img src="../assets/images/DP_Logo.png" alt="Logo" class="h-12" />
+                    </router-link>
                 </div>
 
                 <!-- Desktop Navigation -->
@@ -13,8 +15,7 @@
                     <!-- Left nav links -->
                     <ul class="flex items-center space-x-8">
                         <li>
-                            <router-link to="/" class="text-gray-800  no-underline" custom
-                                v-slot="{ navigate, href }">
+                            <router-link to="/" class="text-gray-800  no-underline" custom v-slot="{ navigate, href }">
                                 <a :href="href" @click="navigate" class="no-underline text-gray-800">
                                     Home
                                 </a>
@@ -38,8 +39,7 @@
                             </router-link>
                         </li>
                         <li class="relative group">
-                            <div href="#"
-                                class="text-gray-800  no-underline flex items-center space-x-2">
+                            <div href="#" class="text-gray-800  no-underline flex items-center space-x-2">
                                 Services
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
                                     fill="currentColor">
@@ -70,8 +70,7 @@
                         </li>
                         <li>
                             <router-link to="/ContactUS" custom v-slot="{ navigate, href }">
-                                <a :href="href" @click="navigate"
-                                    class="block py-2 text-gray-800  no-underline">
+                                <a :href="href" @click="navigate" class="block py-2 text-gray-800  no-underline">
                                     Contact
                                 </a>
                             </router-link>
@@ -117,8 +116,7 @@
                             class="absolute right-0 mt-2 bg-white w-60 shadow-lg rounded-md px-6 py-4 space-y-2 font-regular z-50">
                             <li>
                                 <router-link to="/" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate"
-                                        class="block text-gray-800  no-underline">
+                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
                                         Home
                                     </a>
                                 </router-link>
@@ -126,8 +124,7 @@
 
                             <li>
                                 <router-link to="/Listing" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate"
-                                        class="block text-gray-800  no-underline">
+                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
                                         Listings
                                     </a>
                                 </router-link>
@@ -135,8 +132,7 @@
 
                             <li>
                                 <router-link to="/AboutUs" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate"
-                                        class="block text-gray-800  no-underline">
+                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
                                         About Us
                                     </a>
                                 </router-link>
@@ -144,8 +140,7 @@
 
                             <li>
                                 <router-link to="/construction" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate"
-                                        class="block text-gray-800  no-underline">
+                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
                                         Construction
                                     </a>
                                 </router-link>
@@ -153,8 +148,7 @@
 
                             <li>
                                 <router-link to="/Interiors" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate"
-                                        class="block text-gray-800  no-underline">
+                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
                                         Interiors
                                     </a>
                                 </router-link>
@@ -162,8 +156,7 @@
 
                             <li>
                                 <router-link to="/ContactUS" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate"
-                                        class="block py-2 text-gray-800  no-underline">
+                                    <a :href="href" @click="navigate" class="block py-2 text-gray-800  no-underline">
                                         Contact
                                     </a>
                                 </router-link>

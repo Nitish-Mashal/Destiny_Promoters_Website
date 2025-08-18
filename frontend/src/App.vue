@@ -5,17 +5,25 @@
     <div class="pt-[63px]">
       <router-view />
     </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919686450917" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-50">
+      <img src="./assets/images/WhatsApp.png" alt="WhatsApp"
+        class="w-14 h-14 rounded-full shadow-lg hover:scale-110 transition-transform duration-300" />
+    </a>
+
     <FooterSection />
   </div>
 </template>
 
 <script setup>
 import Navbar from './pages/Navbar.vue'
-import FooterSection from './pages/FooterSection.vue';
+import FooterSection from './pages/FooterSection.vue'
 </script>
 
 <style>
 @import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css";
+
 * {
   font-family: "Roboto", sans-serif;
 }

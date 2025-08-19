@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto px-4 py-8">
         <!-- Section Heading -->
-        <div class="text-center mb-8">
+        <div class="text-center">
             <div class="font-semibold text-7xl">Featured Properties</div>
             <p class="text-xs">Lorem ipsum dolor sit amet</p>
         </div>

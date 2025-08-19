@@ -92,7 +92,7 @@
         </div>
 
         <!-- Fourth Section -->
-        <div class="container font items-center">
+        <div class="container font items-center pb-4">
             <div class="row">
                 <!-- Left Image -->
                 <div class="col-md-6">

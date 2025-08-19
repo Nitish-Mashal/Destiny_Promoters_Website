@@ -24,40 +24,51 @@
             <!-- Carousel -->
             <el-carousel :interval="5000" arrow="always" height="350px" indicator-position="none">
                 <el-carousel-item v-for="(chunk, index) in chunkedHomes" :key="'chunk-' + index">
-                    <div class="container">
-                        <div class="row justify-content-center g-4">
-                            <div class="col-md-4" v-for="(home, idx) in chunk" :key="'home-' + idx">
-                                <div class="card h-100 shadow-sm border-0 rounded-3">
-                                    <div class="position-relative">
-                                        <img :src="home.image" class="card-img-top p-2 rounded-4" alt="Property Image"
-                                            style="height: 220px; object-fit: cover" />
-                                        <span class="position-absolute top-0 start-0 m-3 p-2 badge bg-dark">
-                                            {{ home.type === 'ready' ? 'READY TO OCCUPY' : home.type.toUpperCase() }}
-                                        </span>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-title fw-semibold mb-1">{{ home.title }}</div>
-                                        <p class="text-xs mb-2 d-flex align-items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="2" stroke="currentColor" class="h-4 w-4 me-1">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                                            </svg>
-                                            {{ home.location }}
-                                        </p>
-                                        <div class="d-flex flex-wrap gap-3 text-xs text-secondary">
-                                            <span class="d-flex align-items-center gap-1">
-                                                <img src="../assets/images/Bed.png" alt="" class="h-3"> {{ home.beds }}
-                                            </span>
-                                            <span class="d-flex align-items-center gap-1">
-                                                <img src="../assets/images/Bath.png" alt="" class="h-3"> {{ home.baths
+                    <div class="container px-5">
+                        <div class="container px-5">
+                            <div class="row justify-content-center g-4">
+                                <div class="col-md-4" v-for="(home, idx) in chunk" :key="'home-' + idx">
+                                    <div class="card h-100 shadow-sm border-0 rounded-3">
+                                        <div class="position-relative">
+                                            <img :src="home.image" class="card-img-top p-2 rounded-4"
+                                                alt="Property Image" style="height: 220px; object-fit: cover" />
+                                            <span class="position-absolute top-0 start-0 m-3 p-2 badge bg-dark">
+                                                {{ home.type === 'ready' ? 'READY TO OCCUPY' :
+                                                    home.type.toUpperCase()
                                                 }}
                                             </span>
-                                            <span class="d-flex align-items-center gap-1">
-                                                <img src="../assets/images/Sqft.png" alt="" class="h-3"> {{ home.area }}
-                                            </span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="card-title fw-semibold mb-1">{{ home.title }}</div>
+                                            <p class="text-xs mb-2 d-flex align-items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor" class="h-4 w-4 me-1">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                                </svg>
+                                                {{ home.location }}
+                                            </p>
+                                            <div class="d-flex flex-wrap gap-3 text-xs text-secondary">
+                                                <span class="d-flex align-items-center gap-1">
+                                                    <img src="../assets/images/Bed.png" alt="" class="h-3">
+                                                    {{
+                                                        home.beds
+                                                    }}
+                                                </span>
+                                                <span class="d-flex align-items-center gap-1">
+                                                    <img src="../assets/images/Bath.png" alt="" class="h-3">
+                                                    {{
+                                                        home.baths
+                                                    }}
+                                                </span>
+                                                <span class="d-flex align-items-center gap-1">
+                                                    <img src="../assets/images/Sqft.png" alt="" class="h-3">
+                                                    {{
+                                                        home.area }}
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

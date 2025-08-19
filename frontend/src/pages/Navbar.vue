@@ -122,7 +122,7 @@
                                     </li>
 
                                     <!-- Always visible -->
-                                    <li>
+                                    <li v-if="isLoggedIn">
                                         <button @click="goToDesk"
                                             class="px-2 py-2 text-gray-800 hover:bg-gray-100 no-underline text-sm w-full text-left">
                                             Switch To Desk
@@ -226,10 +226,10 @@
 
                                         <!-- Login / Logout -->
                                         <li v-if="!isLoggedIn">
-                                            <router-link to="/login"
-                                                class="px-2 py-2 text-gray-800 hover:bg-gray-100 no-underline text-sm">
+                                            <button @click="goToLogin"
+                                                class="px-2 py-2 text-gray-800 hover:bg-gray-100 no-underline text-sm w-full text-left">
                                                 Login
-                                            </router-link>
+                                            </button>
                                         </li>
 
                                         <li v-if="isLoggedIn">

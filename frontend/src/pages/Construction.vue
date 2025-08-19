@@ -47,7 +47,7 @@
         </div>
 
         <!-- Third Section -->
-        <div class="container font mb-6">
+        <div class="container font mb-5">
             <div class="row justify-content-center">
                 <div
                     class="col-lg-8 col-md-10 col-10 bg-gray-100 rounded-pill py-4 d-flex flex-wrap justify-content-around align-items-center">

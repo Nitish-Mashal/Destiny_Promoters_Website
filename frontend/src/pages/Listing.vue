@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-4 py-14">
+    <div class="container mx-auto px-4 pt-14">
         <!-- Header -->
         <div class="pb-8">
             <div class="text-[35px] font-medium pb-2">Find Your Dream Property</div>

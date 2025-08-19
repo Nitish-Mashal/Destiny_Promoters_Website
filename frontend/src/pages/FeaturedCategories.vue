@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-4">
+    <div class="">
         <!-- Heading -->
         <div class="flex flex-col items-center justify-center pt-4 text-center">
             <div class="font-semibold text-3xl md:text-5xl lg:text-7xl">
@@ -8,19 +8,19 @@
         </div>
 
         <!-- Image Cards -->
-        <div class="row justify-content-center pt-4 g-4">
+        <div class="p-5 row justify-content-center pt-4 g-4">
             <div v-for="(item, index) in propertyList" :key="index" class="col-12 col-sm-6 col-md-4 col-lg-2 pb-3">
                 <div class="position-relative text-center rounded-xl overflow-hidden">
                     <!-- Title & Properties count -->
                     <div class="position-absolute top-0 start-0 text-start p-4 text-[#1A1A1A] z-10">
-                        <div class="fw-semibold text-lg md:text-xl">{{ item.title }}</div>
-                        <div class="text-sm text-gray-600">
+                        <div class="fw-semibold text-sm md:text-sm mb-1">{{ item.title }}</div>
+                        <div class="text-xs">
                             {{ item.properties }} Properties
                         </div>
                     </div>
 
                     <!-- Image -->
-                    <img :src="item.image" alt="Category" class="w-100 h-60 object-cover rounded-xl" />
+                    <img :src="item.image" alt="Category" class="w-100 object-cover rounded-xl" />
                 </div>
             </div>
         </div>

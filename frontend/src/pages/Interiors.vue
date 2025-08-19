@@ -129,7 +129,7 @@
         </div>
 
         <!-- Sixth Section -->
-        <div class="container mb-3">
+        <div class="container">
             <div class="row font col-lg-12 col-md-8 col-10 px-5 py-4">
                 <div class="col-md-6">
                     <div class="text-[#E7C873] font-medium">GALLERY</div>

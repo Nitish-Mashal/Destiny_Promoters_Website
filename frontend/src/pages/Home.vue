@@ -86,7 +86,34 @@
 
         </div>
 
-        <!-- Stats: Show on md and above only -->
+        <!-- Stats: Show on Large Screens -->
+
+        <div
+          class="rounded-tl-[100px] overflow-hidden md:absolute md:bottom-[-25px] right-[-1px] w-[95%] md:w-[700px] mx-auto shadow-lg">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white p-4 custom-clip items-start">
+
+            <div class="text-left px-5">
+              <div class="text-4xl font-bold">5+</div>
+              <div class="text-sm text-gray-600 mt-1">Completed Projects</div>
+            </div>
+
+            <div class="text-left px-5">
+              <div class="text-4xl font-bold">8+</div>
+              <div class="text-sm text-gray-600 mt-1">Upcoming Projects</div>
+            </div>
+
+            <div class="text-left px-4">
+              <div class="text-4xl font-bold">25+</div>
+              <div class="text-sm text-gray-600 mt-1">Trained Professionals</div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+        <!-- Stats: Show on small Screens -->
         <div
           class="hidden rounded-tl-[100px] overflow-hidden md:absolute md:bottom-[-25px] right-[-1px] w-[95%] md:w-[700px] mx-auto shadow-lg">
           <div class="grid grid-cols-1 md:grid-cols-3 bg-white p-4 custom-clip">
@@ -110,28 +137,28 @@
 
       <!-- Second Section -->
       <div class="pt-10">
-        <div class="container-fluid bg-gray-100 rounded-2xl mx-auto py-4 px-4">
-          <div class="flex flex-col items-center relative">
-            <div class="font-semibold text-5xl text-center">Homes For You</div>
-            <div class="w-full flex justify-center mt-1">
-              <div class="relative w-full max-w-6xl">
-                <p class="text-sm text-center">Based on your view history</p>
-                <router-link to="/Listing">
-                  <div class="absolute right-0 top-0 flex items-center text-sm cursor-pointer underline text-black">
-                    View All
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                      stroke="currentColor" class="w-4 h-3 ml-1">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                  </div>
-                </router-link>
-              </div>
+        <div class="flex flex-col items-center relative">
+          <div class="font-semibold text-5xl text-center">Homes For You</div>
+          <div class="w-full flex justify-center mt-1">
+            <div class="relative w-full max-w-6xl">
+              <p class="text-sm text-center">Based on your view history</p>
+              <router-link to="/Listing">
+                <div class="absolute right-0 top-0 flex items-center text-sm cursor-pointer underline text-black">
+                  View All
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-4 h-3 ml-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                </div>
+              </router-link>
             </div>
           </div>
+        </div>
 
-          <!-- Carousel -->
-          <el-carousel :interval="5000" arrow="always" height="350px" indicator-position="none">
-            <el-carousel-item v-for="(chunk, index) in chunkedHomes" :key="'chunk-' + index">
+        <!-- Carousel -->
+        <el-carousel :interval="5000" arrow="always" height="350px" indicator-position="none">
+          <el-carousel-item v-for="(chunk, index) in chunkedHomes" :key="'chunk-' + index">
+            <div class="container px-5">
               <div class="container">
                 <div class="row justify-content-center g-4">
                   <div class="col-md-4" v-for="(home, idx) in chunk" :key="'home-' + idx">
@@ -172,9 +199,9 @@
                   </div>
                 </div>
               </div>
-            </el-carousel-item>
-          </el-carousel>
-        </div>
+            </div>
+          </el-carousel-item>
+        </el-carousel>
       </div>
 
       <!-- Stats: Show on small screens only -->

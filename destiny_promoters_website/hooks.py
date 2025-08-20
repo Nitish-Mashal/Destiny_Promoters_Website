@@ -21,6 +21,10 @@ app_license = "mit"
 # 	}
 # ]
 
+website_route_rules = [
+	{"from_route": "//<path:path>", "to_route": "/"},
+]
+
 # Includes in <head>
 # ------------------
 

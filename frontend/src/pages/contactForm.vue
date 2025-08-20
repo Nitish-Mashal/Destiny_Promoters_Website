@@ -81,11 +81,10 @@ export default {
             this.loading = true;
 
             try {
-                // Read CSRF token from cookies
                 const csrfToken = this.getCookie("frappe.csrf_token");
 
                 const res = await fetch(
-                    "http://127.0.0.1:8000/api/method/destiny_promoters_website.contact_api.send_suggestion",
+                    "/api/method/destiny_promoters_website.contact_api.send_suggestion",
                     {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -104,7 +103,7 @@ export default {
                     this.responseClass = "text-red-600 font-medium";
                 }
 
-                
+
             } catch (err) {
                 console.error(err);
                 this.responseMessage = "⚠️ Server error. Please try again later.";

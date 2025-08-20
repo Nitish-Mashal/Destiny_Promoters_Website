@@ -1,5 +1,5 @@
 <template>
-    <div class="px-5 py-3">
+    <div class="md:px-5 py-3">
         <footer class="bg-gray-50 rounded-2xl shadow-sm">
             <!-- Top -->
             <div class="flex flex-col md:flex-row items-center justify-between px-8 py-6">
@@ -22,96 +22,92 @@
             <hr class="border-gray-400" />
 
             <!-- Main Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 px-8 py-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 px-8 py-6 pb-5 pt-5">
                 <!-- Subscribe -->
-                <div class="col-span-1">
+                <div class="col-span-1 md:col-span-2">
                     <h4 class="font-semibold mb-3 text-sm">Subscribe</h4>
                     <div class="flex items-center mb-3">
                         <input type="email" placeholder="Your e-mail"
-                            class="w-10/12 md:w-28 lg:w-24 xl:w-24 h-10 px-3 text-sm border border-gray-300 rounded-l-full outline-none focus:outline-none focus:ring-0" />
+                            class="w-50 h-8 px-3 text-sm border border-gray-300 rounded-l-full outline-none focus:ring-0" />
                         <button
-                            class="bg-black text-white px-4 h-10 text-sm rounded-r-full flex items-center justify-center space-x-1">
+                            class="bg-[#1a1a1a] text-white px-4 h-8 text-sm rounded-r-full flex items-center justify-center space-x-1">
                             <span>Send</span>
                             <span>→</span>
                         </button>
                     </div>
-                    <p class="text-sm text-gray-500 pb-2">
-                        Subscribe to our newsletter to receive our weekly feed.
+                    <p class="text-xs text-gray-800 pb-2">
+                        Destiny Promoters have been in the diversified business of <br>real estate sector over the last
+                        5 years.
                     </p>
                 </div>
 
-                <!-- Discover -->
-                <div>
-                    <h4 class="font-semibold mb-3 text-sm ml-8">Discover</h4>
-                    <ul class="space-y-2 text-sm text-black">
-                        <li>Miami</li>
-                        <li>New York</li>
-                        <li>Chicago</li>
-                        <li>Florida</li>
-                        <li>Los Angeles</li>
-                        <li>San Diego</li>
-                    </ul>
-                </div>
 
                 <!-- Quick Links -->
-                <div>
-                    <h4 class="font-semibold mb-3 text-sm ml-8">Quick Links</h4>
-                    <ul class="space-y-2 text-sm text-black">
-                        <li>About</li>
-                        <li>Contact</li>
-                        <li>FAQ's</li>
-                        <li>Blog</li>
-                        <li>Pricing Plans</li>
-                        <li>Privacy Policy</li>
-                        <li>Terms & Conditions</li>
-                    </ul>
+                <div class="col-span-1">
+                    <div class="font-semibold mb-3 text-sm">Quick Links</div>
+                    <div class="space-y-2 text-xs text-black">
+
+                        <div><router-link to="/AboutUs" class="font no-underline">About</router-link></div>
+                        <div><router-link to="/ContactUS" class="font no-underline">Contact</router-link></div>
+                        <div><router-link to="/Listing" class="font no-underline">Listing</router-link></div>
+                        <div><router-link to="#" class="font no-underline">Privacy Policy</router-link></div>
+                        <div><router-link to="#" class="font no-underline">Terms & Conditions</router-link></div>
+
+                    </div>
                 </div>
 
                 <!-- Contact Us -->
-                <div>
-                    <h4 class="font-semibold mb-3 text-sm">Contact Us</h4>
-                    <p class="text-sm text-black">hi@justhome.com</p>
-                    <p class="text-sm text-black">(123) 456-7890</p>
+                <div class="col-span-1 ">
+                    <div class="font-semibold mb-3 text-sm">Contact Us</div>
+                    <a href="mailto:sales@destinypromoters.in" class="block text-xs font no-underline">
+                        sales@destinypromoters.in
+                    </a>
+
+                    <a href="tel:+919686450917" class="block text-xs font no-underline mt-1">
+                        +91 96864 50917
+                    </a>
                 </div>
 
                 <!-- Our Address -->
-                <div>
-                    <h4 class="font-semibold mb-3 text-sm">Our Address</h4>
-                    <p class="text-sm text-black leading-snug">
-                        99 Fifth Avenue, 3rd Floor<br />
-                        San Francisco, CA 1980
-                    </p>
+                <div class="col-span-1">
+                    <div class="font-semibold mb-3 text-sm">Our Address</div>
+                    <div class="text-xs text-black leading-snug">
+                        #97/B (New #1/2), 1st Floor, Jayanagar
+                        7th Block, Bangalore - 560082
+                    </div>
                 </div>
 
                 <!-- Get the App -->
-                <div>
-                    <h4 class="font-semibold mb-3 text-sm">Get the app</h4>
+                <div class="col-span-1">
+                    <div class="font-semibold mb-3 text-sm">Get the app</div>
                     <div class="space-y-3">
                         <button
-                            class="bg-black text-white px-4 py-2 rounded-lg flex items-center space-x-2 w-full text-sm">
+                            class="bg-[#1a1a1a] text-white px-4 py-2 rounded-lg flex items-center space-x-4 sm:w-1/2 md:w-full text-sm">
                             <i class="fab fa-apple text-lg"></i>
                             <span class="text-left">
-                                <span class="block leading-none">Download on the</span>
+                                <span class="block text-xs font-light text-gray-200">Download on the</span>
                                 <span class="font-semibold">Apple Store</span>
                             </span>
                         </button>
+
                         <button
-                            class="bg-black text-white px-4 py-2 rounded-lg flex items-center space-x-2 w-full text-sm">
+                            class="bg-[#1a1a1a] text-white px-4 py-2 rounded-lg flex items-center space-x-4 sm:w-1/2 md:w-full text-sm">
                             <i class="fab fa-google-play text-lg"></i>
                             <span class="text-left">
-                                <span class="block leading-none">Get it on</span>
+                                <span class="block text-xs font-light text-gray-200">Get it on</span>
                                 <span class="font-semibold">Google Play</span>
                             </span>
                         </button>
+
                     </div>
                 </div>
             </div>
 
-            <hr class="border-gray-200" />
+
+            <hr class="border-gray-400" />
 
             <!-- Bottom -->
-            <div
-                class="flex flex-col md:flex-row items-center px-8 py-4 text-sm text-black gap-10 md:gap-40">
+            <div class="flex flex-col md:flex-row items-center px-8 py-2 text-xs text-black gap-10 md:gap-40 pb-5">
                 <span>Copyright © 2025. Destiny Promoters</span>
                 <span>Powered By: Quantumberg Technologies Pvt Ltd</span>
             </div>

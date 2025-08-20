@@ -82,14 +82,11 @@
               </button>
             </div>
           </div>
-
-
         </div>
-
+        
         <!-- Stats: Show on Large Screens -->
-
         <div
-          class="rounded-tl-[100px] overflow-hidden md:absolute md:bottom-[-25px] right-[-1px] w-[95%] md:w-[700px] mx-auto shadow-lg">
+          class="hidden md:block rounded-tl-[100px] overflow-hidden md:absolute md:bottom-[-25px] right-[-1px] w-[95%] md:w-[700px] mx-auto shadow-lg">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white p-4 custom-clip items-start">
 
             <div class="text-left px-5">
@@ -109,29 +106,6 @@
 
           </div>
         </div>
-
-
-
-
-        <!-- Stats: Show on small Screens -->
-        <div
-          class="hidden rounded-tl-[100px] overflow-hidden md:absolute md:bottom-[-25px] right-[-1px] w-[95%] md:w-[700px] mx-auto shadow-lg">
-          <div class="grid grid-cols-1 md:grid-cols-3 bg-white p-4 custom-clip">
-            <div class="ml-20">
-              <div class="text-3xl font-bold">5+</div>
-              <div class="text-gray-900 text-sm">Completed Projects</div>
-            </div>
-            <div class="ml-20">
-              <div class="text-3xl font-bold">8+</div>
-              <div class="text-gray-900 text-sm">Upcoming Projects</div>
-            </div>
-            <div class="ml-20">
-              <div class="text-3xl font-bold">25+</div>
-              <div class="text-gray-900 text-sm">Trained Professionals</div>
-            </div>
-          </div>
-        </div>
-
 
       </div>
 

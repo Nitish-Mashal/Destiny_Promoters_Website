@@ -30,7 +30,9 @@
                             </div>
                             <div>
                                 <div class="text-sm text-gray-200 mb-1">Contact Number</div>
-                                <div class="font-semibold text-xl">+91 96864 50917</div>
+                                <div class="font-semibold text-xl"> <a href="tel:+91 96864 50917"
+                                        class="text-white no-underline">+91 96864 50917</a>
+                                </div>
                             </div>
                         </div>
 
@@ -51,7 +53,8 @@
                             </div>
                             <div>
                                 <div class="text-sm text-gray-200 mb-1">E-mail</div>
-                                <div class="font-semibold text-xl">sales@destinypromoters.in</div>
+                                <div class="font-semibold text-xl"><a href="mailto:sales@destinypromoters.in"
+                                        class="text-white no-underline">sales@destinypromoters.in</a></div>
                             </div>
                         </div>
 
@@ -72,9 +75,13 @@
                             <div>
                                 <div class="text-sm text-gray-200 mb-1">Location</div>
                                 <div class="font-semibold text-xl">
-                                    #97/B (New #1/2), 1st Floor,<br>
-                                    Jayanagar 7th Block, Bangalore - 560082
+                                    <a href="https://www.google.com/maps/place/Destiny+Promoters/@12.928273,77.577136,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae15a26c2f1a79:0x5d1ffd246711ba32!8m2!3d12.928273!4d77.577136!16s%2Fg%2F11c24g0t5c"
+                                        target="_blank" class="no-underline text-white">
+                                        #97/B (New #1/2), 1st Floor,<br>
+                                        Jayanagar 7th Block, Bangalore - 560082
+                                    </a>
                                 </div>
+
                             </div>
                         </div>
 
@@ -92,57 +99,10 @@
                     </div>
                 </div>
                 <div class="col-md-1"></div>
+
+                <!-- Contact Form -->
                 <div class="col-md-6">
-                    <div class="font text-[220%] font-semibold">Send Us a Suggestion!</div>
-                    <div class="font-light text-xs text-gray-900 mb-3">Have an idea or improvements in mind? Let us
-                        know!
-                    </div>
-                    <form class="space-y-4">
-                        <!-- Name -->
-                        <div>
-                            <label for="name" class="block text-xs mb-1">Your Name</label>
-                            <input type="text" id="name" placeholder="Enter your name"
-                                class="form-control rounded-md border border-gray-400 w-full py-0 px-3 focus:outline-none focus:ring-2 focus:ring-black placeholder:text-xs">
-
-                        </div>
-
-                        <!-- Email -->
-                        <div>
-                            <label for="email" class="block text-xs mb-1">Your Email</label>
-                            <input type="email" id="email" placeholder="Enter your email"
-                                class="form-control rounded-md border border-gray-400 w-full py-0 px-3 focus:outline-none focus:ring-2 focus:ring-black placeholder:text-xs">
-                        </div>
-
-                        <!-- Contact Number -->
-                        <div>
-                            <label for="contact" class="block text-xs mb-1">Your Contact Number</label>
-                            <input type="text" id="contact" placeholder="Enter your contact number"
-                                class="form-control rounded-md border border-gray-400 w-full py-0 px-3 focus:outline-none focus:ring-2 focus:ring-black placeholder:text-xs">
-                        </div>
-
-                        <!-- Message Subject -->
-                        <div>
-                            <label for="subject" class="block text-xs mb-1">Your Message Subject</label>
-                            <input type="text" id="subject" placeholder="Enter your message subject"
-                                class="form-control rounded-md border border-gray-400 w-full py-0 px-3 focus:outline-none focus:ring-2 focus:ring-black placeholder:text-xs">
-                        </div>
-
-                        <!-- Message -->
-                        <div>
-                            <label for="message" class="block text-xs mb-1">Your Message</label>
-                            <textarea id="message" rows="4" placeholder="Enter your message"
-                                class="form-control rounded-md border border-gray-400 w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-black placeholder:text-xs"></textarea>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <div>
-                            <button type="submit"
-                                class="w-full bg-black text-white py-2 text-sm rounded-md hover:bg-black">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
-
+                    <contactForm />
                 </div>
             </div>
 
@@ -160,4 +120,5 @@
 </template>
 
 <script setup>
+import contactForm from './contactForm.vue';
 </script>

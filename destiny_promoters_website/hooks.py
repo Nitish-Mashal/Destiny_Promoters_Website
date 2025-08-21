@@ -25,6 +25,10 @@ website_route_rules = [
 	{"from_route": "//<path:path>", "to_route": "/"},
 ]
 
+csrf_exempt_methods = [
+    "destiny_promoters_website.contact_api.send_suggestion"
+]
+
 # Includes in <head>
 # ------------------
 

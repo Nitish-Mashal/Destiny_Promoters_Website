@@ -81,28 +81,31 @@ export default {
             this.loading = true;
 
             try {
-                const csrfToken = this.getCookie("frappe.csrf_token");
-
+                // ✅ Encode as x-www-form-urlencoded (CSRF safe for guests)
+                const body = new URLSearchParams(this.form);
                 const res = await fetch(
                     "/api/method/destiny_promoters_website.contact_api.send_suggestion",
                     {
                         method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(this.form),
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                        },
+                        body,
+                        credentials: "omit",   // 🔥 prevent cookies/session from being sent
                     }
                 );
 
                 const data = await res.json();
 
-                if (res.ok && data.message?.status === "success") {
+                // ✅ Backend returns { "status": "success", "message": "..." }
+                if (res.ok && data.status === "success") {
                     this.responseMessage = "✅ Your suggestion has been submitted successfully!";
                     this.responseClass = "text-green-600 font-medium";
                     this.form = { name: "", email: "", contact: "", subject: "", message: "" };
                 } else {
-                    this.responseMessage = "❌ Something went wrong. Please try again.";
+                    this.responseMessage = data.message || "❌ Something went wrong. Please try again.";
                     this.responseClass = "text-red-600 font-medium";
                 }
-
 
             } catch (err) {
                 console.error(err);
@@ -112,13 +115,6 @@ export default {
                 this.loading = false;
             }
         },
-
-        // Helper function to get cookie
-        getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(";").shift();
-        }
     },
 };
 </script>

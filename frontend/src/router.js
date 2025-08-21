@@ -6,6 +6,8 @@ import Construction from './pages/Construction.vue'
 import Interiors from './pages/Interiors.vue'
 import ListingDetails from './pages/ListingDetails.vue'
 import ContactUs from './pages/ContactUs.vue'
+import PrivacyPolicy from './pages/PrivacyPolicy.vue'
+import TermsAndConditions from './pages/TermsAndConditions.vue'
 
 const routes = [
   {
@@ -43,6 +45,16 @@ const routes = [
     path: '/ContactUs',
     name: 'ContactUs',
     component: ContactUs,
+  },
+  {
+    path: '/PrivacyPolicy',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy,
+  },
+  {
+    path: '/TermsAndConditions',
+    name: 'TermsAndConditions',
+    component: TermsAndConditions,
   },
 ]
 

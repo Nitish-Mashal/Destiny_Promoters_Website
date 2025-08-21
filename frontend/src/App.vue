@@ -7,10 +7,10 @@
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <!-- <a href="https://wa.me/919686450917" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-50">
+    <a href="https://wa.me/919686450917" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-50">
       <img src="./assets/images/WhatsApp.png" alt="WhatsApp"
-        class="w-14 h-14 rounded-full shadow-lg hover:scale-110 transition-transform duration-300" />
-    </a> -->
+        class="w-10 rounded-full shadow-lg hover:scale-110 transition-transform duration-300" />
+    </a>
 
     <FooterSection />
   </div>

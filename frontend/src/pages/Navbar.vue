@@ -70,7 +70,7 @@
 
                         </li>
                         <li>
-                            <router-link to="/ContactUS" custom v-slot="{ navigate, href }">
+                            <router-link to="/contact-us" custom v-slot="{ navigate, href }">
                                 <a :href="href" @click="navigate" class="block py-2 text-gray-800  no-underline">
                                     Contact
                                 </a>
@@ -191,7 +191,7 @@
                             </li>
 
                             <li>
-                                <router-link to="/ContactUS" custom v-slot="{ navigate, href }">
+                                <router-link to="/contact-us" custom v-slot="{ navigate, href }">
                                     <a :href="href" @click="navigate" class="block py-2 text-gray-800  no-underline">
                                         Contact
                                     </a>

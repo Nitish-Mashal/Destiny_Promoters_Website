@@ -21,9 +21,38 @@ app_license = "mit"
 # 	}
 # ]
 
+# website_route_rules = [
+# 	{"from_route": "//<path:path>", "to_route": "/"},
+# ]
+
+# website_route_rules = [
+#     {"from_route": "/<(?!app|login|api|assets).*", "to_route": "/"}
+# ]
+
+
 website_route_rules = [
-	{"from_route": "//<path:path>", "to_route": "/"},
+    # force Vue for these conflicting routes
+
+
+    # allow frappe system routes
+    {"from_route": "/app/<path:path>", "to_route": "/app/<path:path>"},
+    {"from_route": "/login", "to_route": "/login"},
+    {"from_route": "/api/<path:path>", "to_route": "/api/<path:path>"},
+    {"from_route": "/assets/<path:path>", "to_route": "/assets/<path:path>"},
+    
+    # other Vue routes
+    {"from_route": "/Listing", "to_route": "/"},
+    {"from_route": "/AboutUs", "to_route": "/"},
+    {"from_route": "/construction", "to_route": "/"},
+    {"from_route": "/contact-us", "to_route": "/"},
+    {"from_route": "/Interiors", "to_route": "/"},
+    {"from_route": "/ListingDetails/<path:path>", "to_route": "/"},
+    {"from_route": "/PrivacyPolicy", "to_route": "/"},
+    {"from_route": "/TermsAndConditions", "to_route": "/"},
 ]
+
+
+
 
 csrf_exempt_methods = [
     "destiny_promoters_website.contact_api.send_suggestion"

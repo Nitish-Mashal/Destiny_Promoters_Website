@@ -26,7 +26,7 @@ const routes = [
     component: AboutUs,
   },
   {
-    path: '/Construction',
+    path: '/construction',
     name: 'Construction',
     component: Construction,
   },
@@ -42,7 +42,7 @@ const routes = [
     props: true
   },
   {
-    path: '/ContactUs',
+    path: '/contact-us',
     name: 'ContactUs',
     component: ContactUs,
   },

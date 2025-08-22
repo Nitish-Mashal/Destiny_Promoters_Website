@@ -11,7 +11,7 @@
             <div v-for="(property, index) in properties" :key="index" class="col-12 col-sm-6 col-lg-3">
                 <div class="card h-100 shadow-sm border-0 rounded-3 border-5">
                     <!-- Image Section -->
-                    <div class="relative p-2">
+                    <div class="relative p-2 pb-0">
                         <img :src="property.image" class="card-img-top rounded-3" alt="Property" />
                         <!-- Badges -->
                         <div class="absolute top-6 left-6 flex gap-2">

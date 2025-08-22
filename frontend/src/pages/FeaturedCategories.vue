@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="bg-gray-50 rounded-3">
         <!-- Heading -->
         <div class="flex flex-col items-center justify-center pt-4 text-center">
             <div class="font-semibold text-3xl md:text-5xl lg:text-7xl">
@@ -56,4 +56,3 @@ const propertyList = [
     }
 ]
 </script>
-  

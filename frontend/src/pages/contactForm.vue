@@ -81,7 +81,6 @@ export default {
             this.loading = true;
 
             try {
-                // ✅ Encode as x-www-form-urlencoded (CSRF safe for guests)
                 const body = new URLSearchParams(this.form);
                 const res = await fetch(
                     "/api/method/destiny_promoters_website.contact_api.send_suggestion",
@@ -91,26 +90,44 @@ export default {
                             "Content-Type": "application/x-www-form-urlencoded",
                         },
                         body,
-                        credentials: "omit",   // 🔥 prevent cookies/session from being sent
+                        credentials: "omit",
                     }
                 );
 
                 const data = await res.json();
 
-                // ✅ Backend returns { "status": "success", "message": "..." }
-                if (res.ok && data.status === "success") {
-                    this.responseMessage = "✅ Your suggestion has been submitted successfully!";
+                // Frappe wraps inside `message`
+                const payload = data.message || data;
+
+                if (res.ok && payload.status === "success") {
+                    this.responseMessage = payload.message;
                     this.responseClass = "text-green-600 font-medium";
-                    this.form = { name: "", email: "", contact: "", subject: "", message: "" };
+
+                    // ✅ clear the form
+                    this.form = {
+                        name: "",
+                        email: "",
+                        contact: "",
+                        subject: "",
+                        message: "",
+                    };
                 } else {
-                    this.responseMessage = data.message || "❌ Something went wrong. Please try again.";
+                    this.responseMessage = payload.message || "Something went wrong. Please try again.";
                     this.responseClass = "text-red-600 font-medium";
                 }
 
+                // Auto-hide after 3 sec
+                setTimeout(() => {
+                    this.responseMessage = "";
+                }, 3000);
+
             } catch (err) {
                 console.error(err);
-                this.responseMessage = "⚠️ Server error. Please try again later.";
+                this.responseMessage = "Server error. Please try again later.";
                 this.responseClass = "text-red-600 font-medium";
+                setTimeout(() => {
+                    this.responseMessage = "";
+                }, 3000);
             } finally {
                 this.loading = false;
             }

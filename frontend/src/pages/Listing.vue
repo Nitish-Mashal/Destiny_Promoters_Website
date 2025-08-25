@@ -89,17 +89,22 @@
 </template>
 
 <script setup>
-import BuildingAmenities from './BuildingAmenities.vue'
 import { ref, computed, onMounted } from 'vue'
-import propertiesData from '/public/data/properties.json'
+import BuildingAmenities from './BuildingAmenities.vue'
 
 const properties = ref([])
 const searchQuery = ref('')
 const activeDropdown = ref(null)
 const selectedOptions = ref(Array(5).fill(null))
 
-onMounted(() => {
-    properties.value = propertiesData
+onMounted(async () => {
+    try {
+        const res = await fetch("/assets/destiny_promoters_website/data/properties.json")
+        if (!res.ok) throw new Error("Failed to load properties")
+        properties.value = await res.json()
+    } catch (err) {
+        console.error("Error fetching properties:", err)
+    }
 })
 
 const toggleDropdown = (index) => {

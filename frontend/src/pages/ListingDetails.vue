@@ -152,7 +152,6 @@
 import BuildingAmenities from './BuildingAmenities.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import propertiesData from '/public/data/properties.json'
 
 const route = useRoute()
 const property = ref(null)
@@ -168,9 +167,23 @@ const setHeight = () => {
     }
 }
 
-onMounted(() => {
-    const id = Number(route.params.id)
-    property.value = propertiesData.find(p => p.id === id) || null
+onMounted(async () => {
+    try {
+        const id = String(route.params.id) // ✅ compare as string for safety
+
+        // ✅ Use same base URL logic everywhere
+        const baseUrl = window.location.origin
+        const response = await fetch(`${baseUrl}/assets/destiny_promoters_website/data/properties.json`)
+        if (!response.ok) throw new Error("Failed to fetch properties.json")
+
+        const data = await response.json()
+
+        // ✅ Match as string (avoids type mismatch issues)
+        property.value = data.find(p => String(p.id) === id) || null
+    } catch (err) {
+        console.error("Error loading property details:", err)
+    }
+
     setHeight()
     window.addEventListener('resize', setHeight)
 })

@@ -139,14 +139,16 @@
                     <router-link :to="{ name: 'ListingDetails', params: { id: home.id } }" class="text-decoration-none">
                       <div class="card h-100 shadow-sm border-0 rounded-3">
                         <div class="position-relative">
-                          <img :src="home.image" class="card-img-top p-2 rounded-4" alt="Property Image"
+                          <img :src="home.thumbnail" class="card-img-top p-2 rounded-4" alt="Property Image"
                             style="height: 220px; object-fit: cover" />
                           <span class="position-absolute top-0 start-0 m-4 p-2 badge bg-dark rounded-5">
-                            {{ home.type === 'ready' ? 'READY TO OCCUPY' : home.type.toUpperCase() }}
+                            {{ home.status?.toUpperCase() || "UNKNOWN" }}
                           </span>
                         </div>
                         <div class="card-body">
-                          <div class="card-title fw-semibold mb-1">{{ home.title }}</div>
+                          <div class="card-title fw-semibold mb-1">{{ home.project_name }}</div>
+
+                          <!-- Location -->
                           <p class="text-xs mb-3 d-flex align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                               stroke="currentColor" class="h-4 w-4 me-1">
@@ -155,18 +157,19 @@
                               <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                             </svg>
-                            {{ home.location }}
+                            {{ home.full_location }}
                           </p>
+
+                          <!-- Extra details -->
                           <div class="d-flex flex-wrap gap-3 text-xs text-secondary">
                             <span class="d-flex align-items-center gap-1">
-                              <img src="../assets/images/Bed.png" alt="" class="h-3"> {{ home.beds }}
+                              <img src="../assets/images/Bed.png" alt="" class="h-3"> {{ home.bhk }}
                             </span>
                             <span class="d-flex align-items-center gap-1">
-                              <img src="../assets/images/Bath.png" alt="" class="h-3"> {{ home.baths
-                              }}
+                              <img src="../assets/images/Bath.png" alt="" class="h-3"> {{ home.bath }}
                             </span>
                             <span class="d-flex align-items-center gap-1">
-                              <img src="../assets/images/Sqft.png" alt="" class="h-3"> {{ home.area }}
+                              <img src="../assets/images/Sqft.png" alt="" class="h-3"> {{ home.super_built_up_area }}
                             </span>
                           </div>
                         </div>
@@ -233,25 +236,27 @@ const homes = ref([])
 
 onMounted(async () => {
   try {
-    const response = await fetch("/assets/destiny_promoters_website/data/properties.json")
-    if (!response.ok) throw new Error("Failed to fetch properties.json")
+    // ✅ Call your backend API instead of static JSON
+    const response = await fetch("/api/method/destiny_promoters_website.api.project_api.get_projects")
+    if (!response.ok) throw new Error("Failed to fetch projects")
     const data = await response.json()
 
-    homes.value = data.map(project => ({
-      id: project.id,
-      title: project.name,
-      location: project.location,
-      beds: project.bhk || "-",
-      baths: project.bath || "-",
-      area: project.superBuiltUpArea,
-      type: project.status?.toLowerCase() || "unknown",
-      image: project.thumbnail
+    // frappe returns { message: [...] }
+    homes.value = data.message.map(project => ({
+      id: project.name,
+      project_name: project.project_name,
+      status: project.status,
+      full_location: project.full_location,
+      bhk: project.bhk,
+      bath: project.bath,
+      super_built_up_area: project.super_built_up_area,
+      builder: project.builder,
+      thumbnail: project.thumbnail
     }))
   } catch (err) {
-    console.error("Error loading properties:", err)
+    console.error("Error loading projects:", err)
   }
 })
-
 
 // Filter logic
 const selectedFilter = ref('all')
@@ -259,7 +264,7 @@ const selectedFilter = ref('all')
 const filteredHomes = computed(() => {
   return selectedFilter.value === 'all'
     ? homes.value
-    : homes.value.filter(h => h.type === selectedFilter.value)
+    : homes.value.filter(h => h.status?.toLowerCase() === selectedFilter.value)
 })
 
 // Chunk homes (after filtering)

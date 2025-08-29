@@ -32,7 +32,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/AboutUs" class="text-gray-800  no-underline" custom
+                            <router-link to="/about-us" class="text-gray-800  no-underline" custom
                                 v-slot="{ navigate, href }">
                                 <a :href="href" @click="navigate" class="no-underline text-gray-800">
                                     About Us
@@ -167,7 +167,7 @@
                             </li>
 
                             <li>
-                                <router-link to="/AboutUs" custom v-slot="{ navigate, href }">
+                                <router-link to="/about-us" custom v-slot="{ navigate, href }">
                                     <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
                                         About Us
                                     </a>

@@ -32,8 +32,10 @@ def get_projects():
         ]
     )
 
-    # fetch child tables
+    # add `id` alias and fetch child tables
     for project in projects:
+        project["id"] = project["name"]
+
         project["carousel_images"] = frappe.get_all(
             "Project Carousel Image",
             filters={"parent": project["name"]},
@@ -46,3 +48,27 @@ def get_projects():
         )
 
     return projects
+
+
+@frappe.whitelist(allow_guest=True)
+def get_project(id):
+    project = frappe.get_doc("Real Estate Project", id)
+    project_dict = project.as_dict()
+
+    # add `id` alias
+    project_dict["id"] = project_dict.get("name")
+
+    # fetch child tables
+    project_dict["carousel_images"] = frappe.get_all(
+        "Project Carousel Image",
+        filters={"parent": project_dict["name"]},
+        fields=["name", "image", "parent", "parentfield", "parenttype", "idx"]
+    )
+    project_dict["gallery_images"] = frappe.get_all(
+        "Project Gallery Image",
+        filters={"parent": project_dict["name"]},
+        fields=["name", "image", "parent", "parentfield", "parenttype", "idx"]
+    )
+
+    return project_dict
+

@@ -50,9 +50,9 @@
                         <div><router-link to="/AboutUs" class="font no-underline">About</router-link></div>
                         <div><router-link to="/ContactUS" class="font no-underline">Contact</router-link></div>
                         <div><router-link to="/Listing" class="font no-underline">Listing</router-link></div>
-                        <div><router-link to="/PrivacyPolicy" class="font no-underline">Privacy Policy</router-link>
+                        <div><router-link to="/privacy-policy" class="font no-underline">Privacy Policy</router-link>
                         </div>
-                        <div><router-link to="/TermsAndConditions" class="font no-underline">Terms &
+                        <div><router-link to="/terms-and-conditions" class="font no-underline">Terms &
                                 Conditions</router-link></div>
 
                     </div>

@@ -121,7 +121,7 @@
         </div>
 
         <!-- Reusable Component -->
-        <homesforyou />
+        <!-- <homesforyou /> -->
     </div>
 </template>
 

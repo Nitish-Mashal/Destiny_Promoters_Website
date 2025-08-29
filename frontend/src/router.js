@@ -16,12 +16,12 @@ const routes = [
     component: Home,
   },
   {
-    path: '/Listing',
+    path: '/listing',
     name: 'Listing',
     component: Listing,
   },
   {
-    path: '/AboutUs',
+    path: '/about-us',
     name: 'AboutUs',
     component: AboutUs,
   },
@@ -31,12 +31,12 @@ const routes = [
     component: Construction,
   },
   {
-    path: '/Interiors',
+    path: '/interiors',
     name: 'Interiors',
     component: Interiors,
   },
   {
-    path: '/ListingDetails/:id',
+    path: '/listing/:id',   // 👈 lowercase and consistent
     name: 'ListingDetails',
     component: ListingDetails,
     props: true
@@ -47,21 +47,21 @@ const routes = [
     component: ContactUs,
   },
   {
-    path: '/PrivacyPolicy',
+    path: '/privacy-policy',
     name: 'PrivacyPolicy',
     component: PrivacyPolicy,
   },
   {
-    path: '/TermsAndConditions',
+    path: '/terms-and-conditions',
     name: 'TermsAndConditions',
     component: TermsAndConditions,
   },
 ]
 
-let router = createRouter({
-  history: createWebHistory('/'),
+const router = createRouter({
+  history: createWebHistory(), // 👈 simplified
   routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     return { top: 0 }
   }
 })

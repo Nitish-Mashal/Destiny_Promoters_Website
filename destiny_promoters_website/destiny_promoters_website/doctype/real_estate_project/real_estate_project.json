@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:project_name",
  "creation": "2025-08-26 19:40:03.187800",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -31,7 +32,8 @@
    "fieldname": "project_name",
    "fieldtype": "Data",
    "label": "Project Name",
-   "options": "primary key"
+   "options": "primary key",
+   "unique": 1
   },
   {
    "fieldname": "heading_project_location",
@@ -42,7 +44,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Ready to Occupy\nUpcoming\nSold Out"
+   "options": "Ready to Occupy\nUpcoming\nSold Out\nSale"
   },
   {
    "fieldname": "project_location",
@@ -134,10 +136,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-26 20:00:05.195254",
+ "modified": "2025-08-29 10:19:12.412343",
  "modified_by": "Administrator",
  "module": "Destiny Promoters Website",
  "name": "Real Estate Project",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

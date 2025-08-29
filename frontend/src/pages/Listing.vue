@@ -99,9 +99,22 @@ const selectedOptions = ref(Array(5).fill(null))
 
 onMounted(async () => {
     try {
-        const res = await fetch("/assets/destiny_promoters_website/data/properties.json")
+        // ✅ Call your backend API
+        const res = await fetch("/api/method/destiny_promoters_website.api.project_api.get_projects")
         if (!res.ok) throw new Error("Failed to load properties")
-        properties.value = await res.json()
+        const data = await res.json()
+
+        // ✅ Map only the fields you need for listing cards
+        properties.value = data.message.map(p => ({
+            id: p.name,
+            name: p.project_name,
+            description: p.description,
+            thumbnail: p.thumbnail,
+            location: p.full_location,
+            bhk: p.bhk,
+            floors: p.floors,
+            soldOut: p.status === "Sold Out" // example
+        }))
     } catch (err) {
         console.error("Error fetching properties:", err)
     }

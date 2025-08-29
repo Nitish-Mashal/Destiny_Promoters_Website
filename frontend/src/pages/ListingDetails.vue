@@ -1,5 +1,9 @@
 <template>
-    <div v-if="property">
+    <div v-if="loading" class="text-center py-14">
+        <p>Loading property details...</p>
+    </div>
+
+    <div v-else-if="property">
         <!-- First Section: Carousel -->
         <el-carousel indicator-position="outside" :height="carouselHeight">
             <el-carousel-item v-for="(image, index) in property.carouselImages" :key="index">
@@ -47,7 +51,6 @@
                     </svg>
                     {{ property.fullLocation }}
                 </span>
-
             </div>
         </div>
 
@@ -56,58 +59,33 @@
             <div class="text-[#E7C873] font-extrabold text-4xl md:text-7xl mb-3">{{ property.name }}</div>
             <div class="row font">
 
-                <!-- Left Column: Description -->
+                <!-- Left Column -->
                 <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <div class="font-semibold text-7xl mb-2">{{ property.headingFirst }}</div>
-                    <div class="text-sm mb-3">
-                        {{ property.description }}
-                    </div>
-
-                    <div class="font-semibold text-3xl mb-2">{{ property.headingSecond }}</div>
-                    <div class="text-sm mb-3">
-                        {{ property.descriptionSecond }}
-                    </div>
-
-                    <div class="font-semibold text-3xl mb-2">{{ property.headingThird }}</div>
-                    <div class="text-sm mb-3">
-                        {{ property.descriptionThird }}
-                    </div>
-
-                    <div class="font-semibold text-3xl mb-2">{{ property.headingFourth }}</div>
-                    <div class="text-sm mb-3">
-                        {{ property.descriptionFourth }}
-                    </div>
-
-
+                    <div class="font-semibold text-3xl mb-2">{{ property.headingFirst }}</div>
+                    <div class="text-sm mb-3" v-html="property.description"></div>
                 </div>
+
                 <div class="col-md-1"></div>
 
-                <!-- Right Column: Property Detail -->
+                <!-- Right Column -->
                 <div class="col-12 col-md-5">
                     <div class="font-semibold text-7xl mb-2">Property Detail</div>
                     <div class="row text-sm">
                         <div class="col-6">
-                            <div class="mb-2">{{ property.headingStatus }}<span class="font-semibold">{{ property.status
+                            <div class="mb-2">Status: <span class="font-semibold">{{ property.status }}</span></div>
+                            <div class="mb-2">Project Area: <span class="font-semibold">{{ property.projectArea
                                     }}</span></div>
-                            <div class="mb-2">{{ property.headingProjectArea }} <span class="font-semibold">{{
-                                property.projectArea
-                                    }}</span></div>
-                            <div class="mb-2">{{ property.headingProjectBy }} <span class="font-semibold">{{
-                                property.builder }}</span>
+                            <div class="mb-2">Project By: <span class="font-semibold">{{ property.builder }}</span>
                             </div>
-                            <div class="mb-2">{{ property.headingSuperBuiltUpArea }} <span class="font-semibold">{{
-                                property.superBuiltUpArea }}</span></div>
+                            <div class="mb-2">Super Built Up Area: <span class="font-semibold">{{
+                                    property.superBuiltUpArea }}</span></div>
                         </div>
                         <div class="col-6">
-                            <div class="mb-2">{{ property.headingProjectType }} <span class="font-semibold">{{
-                                property.type }}</span></div>
-                            <div class="mb-2">{{ property.headingNoOfFloors }} <span class="font-semibold">{{
-                                property.floors }}</span>
+                            <div class="mb-2">Project Type: <span class="font-semibold">{{ property.type }}</span></div>
+                            <div class="mb-2">No Of Floors: <span class="font-semibold">{{ property.floors }}</span>
                             </div>
-                            <div class="mb-2">{{ property.headingLocation }} <span class="font-semibold">{{
-                                property.location }}</span></div>
-                            <div class="mb-2">{{ property.headingNoOfRooms }} <span class="font-semibold">{{
-                                property.bhk }}</span></div>
+                            <div class="mb-2">Location: <span class="font-semibold">{{ property.location }}</span></div>
+                            <div class="mb-2">No Of Rooms: <span class="font-semibold">{{ property.bhk }}</span></div>
                         </div>
                     </div>
                 </div>
@@ -116,7 +94,7 @@
 
         <!-- Fourth Section -->
         <div class="px-[7%] mb-6">
-            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">{{ property.projectGallery }}</div>
+            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">Gallery</div>
             <div class="row font g-3">
                 <div class="col-12 col-md-6">
                     <img v-if="property.galleryImages && property.galleryImages[0]" :src="property.galleryImages[0]"
@@ -131,15 +109,17 @@
             </div>
         </div>
 
-        <!-- Fifth Section -->
+        <!-- Fifth Section (Map) -->
         <div class="px-[7%]">
-            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">{{ property.headingProjectLocation }}
-            </div>
-            <iframe :src="property.projectLocation" class="w-full" height="450" style="border:0;" allowfullscreen=""
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">Location</div>
+
+            <!-- ✅ Clean iframe rendering -->
+            <iframe v-if="property.projectLocation" :src="property.projectLocation" width="100%" height="400"
+                style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
 
-        <!-- Fifth Section -->
+        <!-- Amenities -->
         <BuildingAmenities />
     </div>
 
@@ -150,11 +130,12 @@
 
 <script setup>
 import BuildingAmenities from './BuildingAmenities.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const property = ref(null)
+const loading = ref(true)
 const carouselHeight = ref('550px')
 
 const setHeight = () => {
@@ -167,24 +148,54 @@ const setHeight = () => {
     }
 }
 
-onMounted(async () => {
-    try {
-        const id = String(route.params.id) // ✅ compare as string for safety
+const extractIframeSrc = (iframeString) => {
+    if (!iframeString) return ''
+    const match = iframeString.match(/src="([^"]+)"/)
+    return match ? match[1] : iframeString // ✅ supports raw URL too
+}
 
-        // ✅ Use same base URL logic everywhere
-        const baseUrl = window.location.origin
-        const response = await fetch(`${baseUrl}/assets/destiny_promoters_website/data/properties.json`)
-        if (!response.ok) throw new Error("Failed to fetch properties.json")
-
-        const data = await response.json()
-
-        // ✅ Match as string (avoids type mismatch issues)
-        property.value = data.find(p => String(p.id) === id) || null
-    } catch (err) {
-        console.error("Error loading property details:", err)
+const mapPropertyData = (data) => {
+    return {
+        name: data.project_name,
+        status: data.status,
+        floors: data.floors,
+        bhk: data.bhk,
+        fullLocation: data.full_location,
+        projectArea: data.project_area,
+        builder: data.builder,
+        superBuiltUpArea: data.super_built_up_area,
+        type: data.project_type,
+        location: data.heading_project_location,
+        headingFirst: data.heading_first,
+        description: data.description,
+        headingProjectLocation: data.heading_project_location,
+        projectLocation: extractIframeSrc(data.project_location),
+        carouselImages: data.carousel_images ? data.carousel_images.map(img => img.image) : [],
+        galleryImages: data.gallery_images ? data.gallery_images.map(img => img.image) : []
     }
+}
 
+const fetchProperty = async (id) => {
+    try {
+        loading.value = true
+        const res = await fetch(`/api/method/destiny_promoters_website.api.project_api.get_project?id=${id}`)
+        const data = await res.json()
+        property.value = mapPropertyData(data.message)
+    } catch (err) {
+        console.error("Error loading property:", err)
+        property.value = null
+    } finally {
+        loading.value = false
+    }
+}
+
+onMounted(async () => {
+    await fetchProperty(route.params.id)
     setHeight()
     window.addEventListener('resize', setHeight)
+})
+
+watch(() => route.params.id, async (newId) => {
+    if (newId) await fetchProperty(newId)
 })
 </script>

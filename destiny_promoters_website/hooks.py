@@ -57,17 +57,21 @@ website_route_rules = [
 
     # Vue routes
     {"from_route": "/Listing", "to_route": "/"},
-    {"from_route": "/AboutUs", "to_route": "/"},
+    {"from_route": "/about-us", "to_route": "/"},
     {"from_route": "/Construction", "to_route": "/"},
     {"from_route": "/contact-us", "to_route": "/"},
     {"from_route": "/Interiors", "to_route": "/"},
 
     # ✅ Fix ListingDetails (handles both direct and nested paths)
-    {"from_route": "/ListingDetails/<id>", "to_route": "/"},
-    {"from_route": "/ListingDetails/<path:path>", "to_route": "/"},
+    # {"from_route": "/ListingDetails/<id>", "to_route": "/"},
+    # {"from_route": "/ListingDetails/<path:path>", "to_route": "/"},
 
-    {"from_route": "/PrivacyPolicy", "to_route": "/"},
-    {"from_route": "/TermsAndConditions", "to_route": "/"},
+    # ✅ Fix ListingDetails route
+    {"from_route": "/listing/<id>", "to_route": "/"},
+    {"from_route": "/listing/<path:path>", "to_route": "/"},
+
+    {"from_route": "/privacy-policy", "to_route": "/"},
+    {"from_route": "/terms-and-conditions", "to_route": "/"},
 ]
 
 

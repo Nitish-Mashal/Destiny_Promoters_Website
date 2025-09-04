@@ -27,17 +27,17 @@
             class="flex items-center justify-center space-x-1 sm:space-x-2 bg-[#1a1a1a] text-white rounded-t-lg w-[130px] sm:w-[160px] md:w-[200px]">
             <button @click="setFilter('all')" :class="[
               'flex-1 py-2 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm font-semibold rounded-tl-lg',
-              selectedFilter === 'all' ? 'bg-white font' : 'hover:bg-gray-900 '
+              selectedFilter === 'all' ? 'bg-white text-black' : 'hover:bg-gray-900'
             ]">All</button>
 
             <button @click="setFilter('sale')" :class="[
               'flex-1 py-2 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm rounded-t-lg',
-              selectedFilter === 'sale' ? 'bg-white font' : 'hover:bg-gray-900'
+              selectedFilter === 'sale' ? 'bg-white text-black' : 'hover:bg-gray-900'
             ]">Sale</button>
 
             <button @click="setFilter('rent')" :class="[
               'flex-1 py-2 sm:py-2 px-2 sm:px-3 text-[10px] sm:text-sm rounded-t-lg',
-              selectedFilter === 'rent' ? 'bg-white font' : 'hover:bg-gray-900'
+              selectedFilter === 'rent' ? 'bg-white text-black' : 'hover:bg-gray-900'
             ]">Rent</button>
           </div>
 
@@ -46,19 +46,20 @@
             class="bg-white rounded-2xl sm:rounded-xl p-3 sm:p-2 shadow-lg w-[70%] sm:w-full sm:max-w-[50%] flex flex-col sm:flex-row items-stretch sm:items-center overflow-hidden">
 
             <!-- Keyword -->
-            <div class="flex-1 border-b sm:border-b-0 sm:border-r pr-3 sm:pr-6  sm:mb-0">
+            <div class="flex-1 border-b sm:border-b-0 sm:border-r pr-3 sm:pr-6 sm:mb-0">
               <label class="text-[10px] sm:text-xs text-gray-500 block text-left ml-2 sm:ml-3">Keyword</label>
-              <input type="text" placeholder="Enter Keyword"
+              <input v-model="keyword" type="text" placeholder="Enter Keyword"
                 class="w-full text-[10px] sm:text-sm border-0 outline-none py-0 focus:ring-0 text-black placeholder:text-black placeholder:text-[10px] sm:placeholder:text-xs" />
             </div>
 
             <!-- Type -->
             <div class="flex-1 border-b sm:border-b-0 sm:border-r px-2 sm:px-3 sm:mb-0">
               <label class="text-[10px] sm:text-xs text-gray-500 block text-left ml-2 sm:ml-3">Type</label>
-              <select class="w-full text-[10px] sm:text-sm border-0 outline-none focus:ring-0 text-black py-0">
-                <option>All Type</option>
-                <option>House</option>
-                <option>Apartment</option>
+              <select v-model="selectedType"
+                class="w-full text-[10px] sm:text-sm border-0 outline-none focus:ring-0 text-black py-0">
+                <option value="all">All Type</option>
+                <option value="rent">Rent</option>
+                <option value="sale">Sale</option>
               </select>
             </div>
 
@@ -76,7 +77,7 @@
               </button>
 
               <!-- Search Button -->
-              <button
+              <button @click="search"
                 class="px-3 sm:px-4 py-2 sm:py-2 text-[10px] sm:text-sm rounded-lg bg-[#1a1a1a] text-white hover:bg-gray-800">
                 Search
               </button>
@@ -172,6 +173,7 @@
                               <img src="../assets/images/Sqft.png" alt="" class="h-3"> {{ home.super_built_up_area }}
                             </span>
                           </div>
+                          <!-- 🚫 property_type intentionally not shown -->
                         </div>
                       </div>
                     </router-link>
@@ -181,6 +183,7 @@
             </div>
           </el-carousel-item>
         </el-carousel>
+
       </div>
 
       <!-- Stats: Show on small screens only -->
@@ -233,15 +236,19 @@ import HomeIntroSection from './HomeIntroSection.vue'
 import BuildingAmenities from './BuildingAmenities.vue'
 
 const homes = ref([])
+const keyword = ref('')
+const selectedType = ref('all')
+const selectedFilter = ref('all')
+const appliedKeyword = ref('')
+const appliedType = ref('all')
 
+// Fetch projects
 onMounted(async () => {
   try {
-    // ✅ Call your backend API instead of static JSON
     const response = await fetch("/api/method/destiny_promoters_website.api.project_api.get_projects")
     if (!response.ok) throw new Error("Failed to fetch projects")
     const data = await response.json()
 
-    // frappe returns { message: [...] }
     homes.value = data.message.map(project => ({
       id: project.name,
       project_name: project.project_name,
@@ -251,23 +258,41 @@ onMounted(async () => {
       bath: project.bath,
       super_built_up_area: project.super_built_up_area,
       builder: project.builder,
-      thumbnail: project.thumbnail
+      thumbnail: project.thumbnail,
+      property_type: project.property_type
     }))
   } catch (err) {
     console.error("Error loading projects:", err)
   }
 })
 
-// Filter logic
-const selectedFilter = ref('all')
+// Apply search filters
+const search = () => {
+  appliedKeyword.value = keyword.value
+  appliedType.value = selectedType.value
+}
 
+// Filtered homes
 const filteredHomes = computed(() => {
-  return selectedFilter.value === 'all'
-    ? homes.value
-    : homes.value.filter(h => h.status?.toLowerCase() === selectedFilter.value)
+  return homes.value.filter(h => {
+    const matchesKeyword =
+      !appliedKeyword.value ||
+      h.project_name.toLowerCase().includes(appliedKeyword.value.toLowerCase()) ||
+      h.full_location.toLowerCase().includes(appliedKeyword.value.toLowerCase())
+
+    const matchesType =
+      appliedType.value === 'all' ||
+      h.property_type?.toLowerCase() === appliedType.value
+
+    const matchesTab =
+      selectedFilter.value === 'all' ||
+      h.property_type?.toLowerCase() === selectedFilter.value
+
+    return matchesKeyword && matchesType && matchesTab
+  })
 })
 
-// Chunk homes (after filtering)
+// Chunk homes for carousel
 const chunkedHomes = computed(() => {
   const chunkSize = 3
   const chunks = []
@@ -281,7 +306,6 @@ const setFilter = filter => {
   selectedFilter.value = filter
 }
 </script>
-
 
 <style scoped>
 .custom-clip {

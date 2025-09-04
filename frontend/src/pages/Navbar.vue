@@ -1,5 +1,5 @@
 <template>
-    <header class="absolute top-0 left-0 w-full z-50 bg-transprent">
+    <header class="fixed top-0 left-0 w-full z-50 bg-white">
         <div class="max-w-7xl mx-auto">
             <nav class="flex items-center justify-between px-[30px] sm:px-[150px]  relative">
                 <!-- Logo -->
@@ -151,50 +151,43 @@
                         <ul v-if="isOpen" ref="mobileMenu"
                             class="absolute right-0 mt-2 bg-white w-60 shadow-lg rounded-md px-6 py-4 space-y-2 font-regular z-50">
                             <li>
-                                <router-link to="/" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
-                                        Home
-                                    </a>
+                                <router-link to="/" class="block text-gray-800 no-underline" @click="closeMobileMenu()">
+                                    Home
                                 </router-link>
                             </li>
 
                             <li>
-                                <router-link to="/Listing" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
-                                        Listings
-                                    </a>
+                                <router-link to="/Listing" class="block text-gray-800 no-underline"
+                                    @click="closeMobileMenu()">
+                                    Listings
                                 </router-link>
                             </li>
 
                             <li>
-                                <router-link to="/about-us" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
-                                        About Us
-                                    </a>
+                                <router-link to="/about-us" class="block text-gray-800 no-underline"
+                                    @click="closeMobileMenu()">
+                                    About Us
                                 </router-link>
                             </li>
 
                             <li>
-                                <router-link to="/construction" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
-                                        Construction
-                                    </a>
+                                <router-link to="/construction" class="block text-gray-800 no-underline"
+                                    @click="closeMobileMenu()">
+                                    Construction
                                 </router-link>
                             </li>
 
                             <li>
-                                <router-link to="/Interiors" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate" class="block text-gray-800  no-underline">
-                                        Interiors
-                                    </a>
+                                <router-link to="/Interiors" class="block text-gray-800 no-underline"
+                                    @click="closeMobileMenu()">
+                                    Interiors
                                 </router-link>
                             </li>
 
                             <li>
-                                <router-link to="/contact-us" custom v-slot="{ navigate, href }">
-                                    <a :href="href" @click="navigate" class="block py-2 text-gray-800  no-underline">
-                                        Contact
-                                    </a>
+                                <router-link to="/contact-us" class="block py-2 text-gray-800 no-underline"
+                                    @click="closeMobileMenu()">
+                                    Contact
                                 </router-link>
                             </li>
 
@@ -210,6 +203,7 @@
                                 </a>
                             </li>
 
+                            <!-- User Dropdown -->
                             <li class="relative" ref="userMenu">
                                 <button @click.stop="toggleUserDropdown"
                                     class="w-8 h-8 rounded-full flex items-center justify-center">
@@ -223,25 +217,24 @@
                                 <transition name="fade-slide">
                                     <ul v-if="isUserDropdownOpen"
                                         class="absolute right-0 mt-2 bg-white w-40 shadow-lg rounded-md py-2 font-regular z-50">
-
                                         <!-- Login / Logout -->
                                         <li v-if="!isLoggedIn">
-                                            <button @click="goToLogin"
+                                            <button @click="goToLogin(); closeMobileMenu()"
                                                 class="px-2 py-2 text-gray-800 hover:bg-gray-100 no-underline text-sm w-full text-left">
                                                 Login
                                             </button>
                                         </li>
 
                                         <li v-if="isLoggedIn">
-                                            <button @click="logout"
+                                            <button @click="logout(); closeMobileMenu()"
                                                 class="w-full text-left px-2 py-2 text-gray-800 hover:bg-gray-100 no-underline text-sm">
                                                 Logout
                                             </button>
                                         </li>
 
                                         <!-- Always visible -->
-                                        <li>
-                                            <button @click="goToDesk"
+                                        <li v-if="isLoggedIn">
+                                            <button @click="goToDesk(); closeMobileMenu()"
                                                 class="px-2 py-2 text-gray-800 hover:bg-gray-100 no-underline text-sm w-full text-left">
                                                 Switch To Desk
                                             </button>
@@ -252,6 +245,8 @@
                         </ul>
                     </transition>
                 </div>
+
+
             </nav>
         </div>
     </header>
@@ -260,7 +255,8 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 
-const isOpen = ref(false) // <-- Mobile menu state
+const isOpen = ref(false) // Mobile menu state
+const menuWrapper = ref(null) // <-- Ref for menu wrapper
 
 // Toggle mobile menu
 const toggleMenu = () => {
@@ -269,19 +265,22 @@ const toggleMenu = () => {
 
 // Close menu on outside click
 const handleClickOutsideMobile = (event) => {
-    const menuWrapper = document.querySelector('[ref="menuWrapper"]')
-    if (isOpen.value && menuWrapper && !menuWrapper.contains(event.target)) {
+    if (isOpen.value && menuWrapper.value && !menuWrapper.value.contains(event.target)) {
         isOpen.value = false
     }
 }
 
-// ---- Existing User Dropdown + Login/Logout Logic ----
+// Close menu on nav item click (mobile only)
+const closeMobileMenu = () => {
+    isOpen.value = false
+}
+
+// --- Existing User Dropdown + Login/Logout Logic ----
 const isUserDropdownOpen = ref(false)
 const userMenu = ref(null)
 const isLoggedIn = ref(false)
 const full_name = ref('')
 
-// Safe initial letter
 const userInitial = computed(() => {
     const name = (full_name.value || '').trim()
     return name ? name[0].toUpperCase() : ''
@@ -298,7 +297,7 @@ const handleClickOutside = (event) => {
 }
 
 const goToLogin = () => {
-    window.location.assign('/login#login') // go to Frappe login page
+    window.location.assign('/login#login')
 }
 
 // --- Utilities ---
@@ -367,6 +366,7 @@ onBeforeUnmount(() => {
     document.removeEventListener('visibilitychange', onFocusOrVisible)
 })
 </script>
+
 
 
 

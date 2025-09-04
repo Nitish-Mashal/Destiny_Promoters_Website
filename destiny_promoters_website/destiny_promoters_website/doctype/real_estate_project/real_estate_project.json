@@ -6,23 +6,26 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "order_by_number",
   "project_name",
   "heading_project_location",
   "status",
   "project_location",
-  "heading_project_area",
+  "heading_first",
+  "description",
   "project_area",
+  "column_break_yswq",
   "builder",
   "super_built_up_area",
   "project_type",
-  "column_break_yswq",
   "floors",
   "bath",
   "bhk",
   "full_location",
-  "heading_first",
-  "description",
   "thumbnail",
+  "sub_description_heading",
+  "sub_description_content",
+  "property_type",
   "section_break_drmb",
   "carousel_images",
   "gallery_images"
@@ -38,13 +41,15 @@
   {
    "fieldname": "heading_project_location",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Heading Project Location"
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Status",
-   "options": "Ready to Occupy\nUpcoming\nSold Out\nSale"
+   "options": "Ready to Occupy\nUpcoming\nOngoing Project\nSold Out\nSale\nRent"
   },
   {
    "fieldname": "project_location",
@@ -86,11 +91,6 @@
    "label": "Description"
   },
   {
-   "fieldname": "heading_project_area",
-   "fieldtype": "Data",
-   "label": "Project Area Heading"
-  },
-  {
    "fieldname": "project_area",
    "fieldtype": "Data",
    "label": "Project Area"
@@ -108,8 +108,9 @@
   {
    "fieldname": "project_type",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Project Type",
-   "options": "Residential\nCommercial"
+   "options": "Residential\nCommercial\nPremium Plots"
   },
   {
    "fieldname": "thumbnail",
@@ -131,12 +132,34 @@
    "fieldtype": "Table",
    "label": "Gallery Images",
    "options": "Project Gallery Image"
+  },
+  {
+   "fieldname": "sub_description_heading",
+   "fieldtype": "Data",
+   "label": "Sub Description Heading"
+  },
+  {
+   "fieldname": "sub_description_content",
+   "fieldtype": "Text Editor",
+   "label": "Sub Description Content"
+  },
+  {
+   "fieldname": "order_by_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Order By Number"
+  },
+  {
+   "fieldname": "property_type",
+   "fieldtype": "Select",
+   "label": "Property Type",
+   "options": "Sale\nRent"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-29 10:19:12.412343",
+ "modified": "2025-09-04 09:44:40.559996",
  "modified_by": "Administrator",
  "module": "Destiny Promoters Website",
  "name": "Real Estate Project",

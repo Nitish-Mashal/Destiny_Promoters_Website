@@ -22,15 +22,21 @@ def get_projects():
             "full_location",
             "heading_first",
             "description",
+            "sub_description_heading",
+            "sub_description_content",
             "thumbnail",
             "owner",
             "creation",
             "modified",
             "modified_by",
             "docstatus",
-            "idx"
-        ]
+            "idx",
+            "order_by_number",
+            "property_type" 
+        ],
+        order_by="CAST(order_by_number AS UNSIGNED) DESC"
     )
+
 
     # add `id` alias and fetch child tables
     for project in projects:
@@ -71,4 +77,3 @@ def get_project(id):
     )
 
     return project_dict
-

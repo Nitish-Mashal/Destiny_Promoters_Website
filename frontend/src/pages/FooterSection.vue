@@ -41,12 +41,10 @@
                     </p>
                 </div>
 
-
                 <!-- Quick Links -->
                 <div class="col-span-1">
                     <div class="font-semibold mb-3 text-sm">Quick Links</div>
                     <div class="space-y-2 text-xs text-black">
-
                         <div><router-link to="/AboutUs" class="font no-underline">About</router-link></div>
                         <div><router-link to="/ContactUS" class="font no-underline">Contact</router-link></div>
                         <div><router-link to="/Listing" class="font no-underline">Listing</router-link></div>
@@ -54,7 +52,6 @@
                         </div>
                         <div><router-link to="/terms-and-conditions" class="font no-underline">Terms &
                                 Conditions</router-link></div>
-
                     </div>
                 </div>
 
@@ -64,7 +61,6 @@
                     <a href="mailto:sales@destinypromoters.in" class="block text-xs font no-underline">
                         sales@destinypromoters.in
                     </a>
-
                     <a href="tel:+919686450917" class="block text-xs font no-underline mt-1">
                         +91 96864 50917
                     </a>
@@ -83,8 +79,9 @@
                 <div class="col-span-1">
                     <div class="font-semibold mb-3 text-sm">Get the app</div>
                     <div class="space-y-3">
-                        <button
-                            class="bg-[#1a1a1a] text-white px-4 py-2 rounded-lg flex items-center space-x-4 sm:w-1/2 md:w-full text-sm">
+                        <!-- Apple Button -->
+                        <button id="pwa-install-btn-apple"
+                            class="hidden bg-[#1a1a1a] text-white px-4 py-2 rounded-lg flex items-center space-x-4 sm:w-1/2 md:w-full text-sm">
                             <i class="fab fa-apple text-lg"></i>
                             <span class="text-left">
                                 <span class="block text-xs font-light text-gray-200">Download on the</span>
@@ -92,19 +89,18 @@
                             </span>
                         </button>
 
-                        <button
-                            class="bg-[#1a1a1a] text-white px-4 py-2 rounded-lg flex items-center space-x-4 sm:w-1/2 md:w-full text-sm">
+                        <!-- Google Button -->
+                        <button id="pwa-install-btn-google"
+                            class="hidden bg-[#1a1a1a] text-white px-4 py-2 rounded-lg flex items-center space-x-4 sm:w-1/2 md:w-full text-sm">
                             <i class="fab fa-google-play text-lg"></i>
                             <span class="text-left">
                                 <span class="block text-xs font-light text-gray-200">Get it on</span>
                                 <span class="font-semibold">Google Play</span>
                             </span>
                         </button>
-
                     </div>
                 </div>
             </div>
-
 
             <hr class="border-gray-400" />
 
@@ -120,8 +116,44 @@
 <script>
 export default {
     name: "FooterSection",
+    mounted() {
+        let deferredPrompt = null;
+        const appleBtn = document.getElementById("pwa-install-btn-apple");
+        const googleBtn = document.getElementById("pwa-install-btn-google");
+
+        // Show buttons by default (for fallback)
+        appleBtn.style.display = "flex";
+        googleBtn.style.display = "flex";
+
+        // Listen for the install prompt
+        window.addEventListener("beforeinstallprompt", (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        // Common function for install
+        const triggerPWAInstall = async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === "accepted") {
+                    console.log("✅ PWA installed");
+                } else {
+                    console.log("❌ PWA dismissed");
+                }
+                deferredPrompt = null;
+            } else {
+                alert("PWA install not available on this device/browser.");
+            }
+        };
+
+        // Attach events
+        appleBtn.addEventListener("click", triggerPWAInstall);
+        googleBtn.addEventListener("click", triggerPWAInstall);
+    },
 };
 </script>
+
 
 <style scoped>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");

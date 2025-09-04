@@ -61,9 +61,14 @@
 
                 <!-- Left Column -->
                 <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <div class="font-semibold text-3xl mb-2">{{ property.headingFirst }}</div>
+                    <div class="font-semibold text-7xl mb-2">{{ property.headingFirst }}</div>
                     <div class="text-sm mb-3" v-html="property.description"></div>
+
+                    <div class="font-semibold text-3xl mb-2">{{ property.subDescriptionHeading }}</div>
+                    <div class="text-sm mb-3" v-html="property.subDescriptionContent"></div>
                 </div>
+
+
 
                 <div class="col-md-1"></div>
 
@@ -94,7 +99,7 @@
 
         <!-- Fourth Section -->
         <div class="px-[7%] mb-6">
-            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">Gallery</div>
+            <div class="font font-semibold text-4xl md:text-7xl mb-3 text-center">Project Gallery</div>
             <div class="row font g-3">
                 <div class="col-12 col-md-6">
                     <img v-if="property.galleryImages && property.galleryImages[0]" :src="property.galleryImages[0]"
@@ -168,6 +173,8 @@ const mapPropertyData = (data) => {
         location: data.heading_project_location,
         headingFirst: data.heading_first,
         description: data.description,
+        subDescriptionHeading: data.sub_description_heading,
+        subDescriptionContent: data.sub_description_content,
         headingProjectLocation: data.heading_project_location,
         projectLocation: extractIframeSrc(data.project_location),
         carouselImages: data.carousel_images ? data.carousel_images.map(img => img.image) : [],

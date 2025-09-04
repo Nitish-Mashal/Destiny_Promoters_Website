@@ -57,18 +57,22 @@
             <router-link v-for="property in filteredProperties" :key="property.id"
                 :to="{ name: 'ListingDetails', params: { id: property.id } }"
                 class="relative rounded-xl overflow-hidden shadow-md border bg-white no-underline text-black hover:no-underline">
+
+                <!-- Thumbnail -->
                 <img :src="property.thumbnail" alt="Property Image" class="w-full h-52 p-2 rounded-4" />
 
-                <div v-if="property.soldOut"
-                    class="absolute top-4 left-4 bg-black text-white text-[10px] px-2 py-1 rounded-3xl">
+                <!-- Sold Out Badge -->
+                <div class="absolute top-4 left-4 bg-black text-white text-[10px] px-2 py-1 rounded-3xl">
                     SOLD OUT
                 </div>
 
                 <div class="px-3">
+                    <!-- Project Name -->
                     <div class="text-[13px] font-semibold no-underline">
                         {{ property.name }}
                     </div>
 
+                    <!-- Description + Button -->
                     <div class="flex items-center justify-between gap-2 pb-2">
                         <div class="text-xs text-gray-800 truncate max-w-[60%] no-underline">
                             {{ property.description }}
@@ -96,25 +100,46 @@ const properties = ref([])
 const searchQuery = ref('')
 const activeDropdown = ref(null)
 const selectedOptions = ref(Array(5).fill(null))
+const locations = ref([])         // dynamic locations
+const propertyTypes = ref([])     // dynamic property types
+const propertySizes = ref([])     // dynamic property sizes
+
+// ✅ Utility: strip HTML tags so description can be truncated safely
+function stripHtml(html) {
+    const div = document.createElement('div')
+    div.innerHTML = html
+    return div.textContent || div.innerText || ''
+}
 
 onMounted(async () => {
     try {
-        // ✅ Call your backend API
         const res = await fetch("/api/method/destiny_promoters_website.api.project_api.get_projects")
         if (!res.ok) throw new Error("Failed to load properties")
         const data = await res.json()
 
-        // ✅ Map only the fields you need for listing cards
         properties.value = data.message.map(p => ({
             id: p.name,
             name: p.project_name,
-            description: p.description,
+            description: stripHtml(p.description),
             thumbnail: p.thumbnail,
-            location: p.full_location,
+            fullLocation: p.full_location,
+            location: p.full_location ? p.full_location.split(",")[0].trim() : "", // short location
+            propertyType: p.property_type,
+            superBuiltUpArea: p.super_built_up_area,  // 🔹 new field
             bhk: p.bhk,
             floors: p.floors,
-            soldOut: p.status === "Sold Out" // example
+            soldOut: p.status?.toLowerCase() === "sold out"
         }))
+
+        // 🔹 Extract unique short locations
+        locations.value = [...new Set(properties.value.map(p => p.location).filter(Boolean))]
+
+        // 🔹 Extract unique property types + "All"
+        const uniqueTypes = [...new Set(properties.value.map(p => p.propertyType).filter(Boolean))]
+        propertyTypes.value = ["All", ...uniqueTypes]
+
+        // 🔹 Extract unique property sizes
+        propertySizes.value = [...new Set(properties.value.map(p => p.superBuiltUpArea).filter(Boolean))]
     } catch (err) {
         console.error("Error fetching properties:", err)
     }
@@ -129,17 +154,26 @@ const selectOption = (filterIndex, option) => {
     activeDropdown.value = null
 }
 
-const filters = [
-    { label: 'Location', icon: 'bi bi-geo-alt', options: ['Delhi', 'Mumbai', 'Bangalore', 'Chennai'] },
-    { label: 'Property Type', icon: 'bi bi-buildings', options: ['Apartment', 'Villa', 'Plot', 'Commercial'] },
+// ✅ Filters setup (dynamic for Location + Property Type + Property Size)
+const filters = computed(() => [
+    { label: 'Location', icon: 'bi bi-geo-alt', options: locations.value },
+    { label: 'Property Type', icon: 'bi bi-buildings', options: propertyTypes.value },
     { label: 'Pricing Range', icon: 'bi bi-cash-coin', options: ['< ₹50L', '₹50L - ₹1Cr', '₹1Cr - ₹2Cr', '> ₹2Cr'] },
-    { label: 'Property Size', icon: 'bi bi-box', options: ['500-1000 sq ft', '1000-2000 sq ft', '2000+ sq ft'] },
+    { label: 'Property Size', icon: 'bi bi-box', options: propertySizes.value }, // 🔹 dynamic
     { label: 'Build Year', icon: 'bi bi-calendar-event', options: ['2025', '2024', '2020-2023', 'Before 2020'] },
-]
+])
 
+// ✅ Filtering logic
 const filteredProperties = computed(() => {
-    return properties.value.filter(p =>
-        p.name.toLowerCase().includes(searchQuery.value.toLowerCase())
-    )
+    return properties.value.filter(p => {
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+        const matchesLocation = !selectedOptions.value[0] || p.location === selectedOptions.value[0]
+        const matchesType =
+            !selectedOptions.value[1] || selectedOptions.value[1] === "All" || p.propertyType === selectedOptions.value[1]
+        const matchesSize =
+            !selectedOptions.value[3] || p.superBuiltUpArea === selectedOptions.value[3] // 🔹 Property size filter
+
+        return matchesSearch && matchesLocation && matchesType && matchesSize
+    })
 })
 </script>

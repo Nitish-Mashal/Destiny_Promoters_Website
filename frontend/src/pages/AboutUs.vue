@@ -161,9 +161,9 @@ const aboutData = {
         heading: 'The ideas and spaces behind your dreams',
         list: [
             'Exceptional customer service.',
-            'Exceptional customer service.',
-            'Exceptional customer service.',
-            'Exceptional customer service.'
+            'Values trust and loyalty.',
+            'Founded on the principle of personalized service.',
+            'Professionalism, transparency & expertise at the forefront of what we do.'
         ],
         highlight: 'Destiny Promoters embodies integrity, honesty and wisdom in all we do',
         closing: 'We understand that your home is more than just a commodity — it\'s where you live and raise your family.'
